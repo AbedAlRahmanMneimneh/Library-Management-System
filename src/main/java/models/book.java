@@ -5,6 +5,16 @@ public class book {
     private String imgSrc;
     private String authors;
 
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    private String desc;
+
     public String getAuthors() {
         return authors;
     }
