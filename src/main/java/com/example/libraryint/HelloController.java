@@ -147,5 +147,17 @@ public class HelloController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        try {
+            for(book b:recomended){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("booksCard.fxml"));
+                HBox box = fxmlLoader.load();
+                bookCardController sampleCardController = fxmlLoader.getController();
+                sampleCardController.setData(b);
+                booksHB.getChildren().add(box);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
