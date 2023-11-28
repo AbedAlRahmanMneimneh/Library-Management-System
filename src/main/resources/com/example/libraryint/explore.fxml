@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.libraryint.Explore"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<VBox prefHeight="900.0" prefWidth="910.0" style="-fx-background-color: #d1d1d1;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryint.Explore">
+   <children>
+      <Label prefHeight="22.0" prefWidth="220.0" text="Editors Recommendations" textFill="#464d73">
+         <font>
+            <Font name="Georgia" size="18.0" />
+         </font>
+      </Label>
+      <ScrollPane fitToHeight="true" prefHeight="370.0" prefWidth="898.0" VBox.vgrow="ALWAYS">
+         <content>
+            <HBox fx:id="recomendationHB" prefHeight="145.0" prefWidth="1500.0" spacing="10.0" style="-fx-background-color: #e1e1e1;">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+         </content>
+      </ScrollPane>
+      <Label prefHeight="22.0" prefWidth="220.0" text="Explore Books" textFill="#464d73">
+         <font>
+            <Font name="Georgia" size="18.0" />
+         </font>
+      </Label>
+      <ScrollPane fitToWidth="true" prefHeight="614.0" prefWidth="910.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <content>
+            <VBox fx:id="booksHB" prefHeight="1032.0" prefWidth="909.0" spacing="10.0" style="-fx-background-color: #e1e1e1;">
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

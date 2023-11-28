@@ -1,13 +1,10 @@
 package com.example.libraryint;
 
-import javafx.event.ActionEvent;
+import com.example.libraryint.bookCardController;
+import com.example.libraryint.cardController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import models.book;
@@ -18,60 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
-    @FXML
-    private VBox scene;
+public class Explore implements Initializable {
+
     @FXML
     private VBox booksHB;
 
     @FXML
-    private Button exploreBT;
-
-    @FXML
-    private Button overviewBT;
-
-    @FXML
     private HBox recomendationHB;
-
-    @FXML
-    private Button roomsBT;
-
-    @FXML
-    private Button searchBT;
-
-    @FXML
-    private TextField searchTF;
-
-    @FXML
-    private Button userBT;
-
-    @FXML
-    private Label userNameLabel;
-
-    @FXML
-    void goToExplore(ActionEvent event) {
-
-    }
-
-    @FXML
-    void goToOverview(ActionEvent event) {
-
-    }
-
-    @FXML
-    void goToRooms(ActionEvent event) {
-
-    }
-
-    @FXML
-    void openUser(ActionEvent event) {
-
-    }
-
-    @FXML
-    void searchBook(ActionEvent event) {
-
-    }
 
     List<book> recommendedList(){
         book b;
@@ -136,39 +86,30 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources)  {
+        List<book> recomended = new ArrayList<>(recommendedList());
         try {
-            FXMLLoader fl = new FXMLLoader();
-            fl.setLocation(getClass().getResource("explore.fxml"));
-            VBox vb = fl.load();
-            scene.getChildren().add(vb);
+            for(book b:recomended){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("card.fxml"));
+                HBox box = fxmlLoader.load();
+                cardController sampleCardController =fxmlLoader.getController();
+                sampleCardController.setData(b);
+                recomendationHB.getChildren().add(box);
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-//        List<book> recomended = new ArrayList<>(recommendedList());
-//        try {
-//            for(book b:recomended){
-//                FXMLLoader fxmlLoader = new FXMLLoader();
-//                fxmlLoader.setLocation(getClass().getResource("card.fxml"));
-//                HBox box = fxmlLoader.load();
-//                cardController sampleCardController =fxmlLoader.getController();
-//                sampleCardController.setData(b);
-//                recomendationHB.getChildren().add(box);
-//            }
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        try {
-//            for(book b:recomended){
-//                FXMLLoader fxmlLoader = new FXMLLoader();
-//                fxmlLoader.setLocation(getClass().getResource("booksCard.fxml"));
-//                HBox box = fxmlLoader.load();
-//                bookCardController sampleCardController = fxmlLoader.getController();
-//                sampleCardController.setData(b);
-//                booksHB.getChildren().add(box);
-//            }
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+        try {
+            for(book b:recomended){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("booksCard.fxml"));
+                HBox box = fxmlLoader.load();
+                bookCardController sampleCardController = fxmlLoader.getController();
+                sampleCardController.setData(b);
+                booksHB.getChildren().add(box);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
