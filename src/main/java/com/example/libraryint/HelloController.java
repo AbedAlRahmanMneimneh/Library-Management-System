@@ -97,7 +97,7 @@ public class HelloController implements Initializable {
         b.setTitle("Outlawed");
         b.setAuthors("Anna North");
         b.setGenre("Historical Fiction");
-        b.setImgSrc("D:\\abed\\projects\\libraryInt\\src\\main\\resources\\com\\example\\libraryint\\images\\Outlawed.png");
+        b.setImgSrc("D:\\abed\\projects\\libraryInt\\src\\main\\resources\\com\\example\\libraryint\\images\\Outlawed.jpeg");
         b.setDesc("Anna North's 'Outlawed' is a gripping historical fiction set in a reimagined American West. Follow the journey of Ada, a young woman who becomes an outlaw to survive, as North weaves a tale of identity, resilience, and the quest for justice.");
 
         bl.add(b);

@@ -20,7 +20,7 @@
    <center>
       <HBox prefHeight="784.0" prefWidth="1546.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="1200.0" prefWidth="910.0" style="-fx-background-color: #d1d1d1;" HBox.hgrow="ALWAYS">
+            <VBox prefHeight="900.0" prefWidth="910.0" style="-fx-background-color: #d1d1d1;" HBox.hgrow="ALWAYS">
                <children>
                   <Label prefHeight="22.0" prefWidth="220.0" text="Editors Recommendations" textFill="#464d73">
                      <font>
