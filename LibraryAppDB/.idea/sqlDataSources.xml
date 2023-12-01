@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="75d1cf7d-9d6a-4103-80f6-f1608053d311" name="IFScos@localhost Mapping">
+      <data-sources db="b9e5bf6b-669f-401c-b9f0-ac7be533c4df" />
+      <scope>
+        <node kind="schema" qname="ifscos" />
+      </scope>
+    </mapping>
+  </component>
+</project>
