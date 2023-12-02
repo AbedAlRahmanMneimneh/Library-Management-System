@@ -1,4 +1,4 @@
-package com.example.libraryint;
+package com.library_gui_controller;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

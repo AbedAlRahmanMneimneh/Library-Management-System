@@ -4,6 +4,6 @@ module com.example.libraryint {
 
     requires org.kordamp.bootstrapfx.core;
 
-    opens com.example.libraryint to javafx.fxml;
-    exports com.example.libraryint;
+    opens com.library_gui_controller to javafx.fxml;
+    exports com.library_gui_controller;
 }

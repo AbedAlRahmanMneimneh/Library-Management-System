@@ -1,7 +1,5 @@
-package com.example.libraryint;
+package com.library_gui_controller;
 
-import com.example.libraryint.bookCardController;
-import com.example.libraryint.cardController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

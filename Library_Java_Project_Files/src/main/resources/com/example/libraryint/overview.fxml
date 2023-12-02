@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.layout.VBox?>
-
-<VBox prefHeight="900.0" prefWidth="910.0" style="-fx-background-color: #2F4673;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryint.Overview" />
