@@ -14,7 +14,7 @@
    <children>
       <ImageView fx:id="image" fitHeight="110.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
          <image>
-            <Image url="@images/OIP.jpeg" />
+            <Image url="@images/12 rules of life.jpeg" />
          </image>
          <effect>
             <DropShadow blurType="ONE_PASS_BOX" height="50.0" offsetX="-4.0" offsetY="4.0" radius="24.5" width="50.0">

@@ -16,7 +16,7 @@
          <children>
             <ImageView fx:id="image" fitHeight="110.0" fitWidth="74.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                <image>
-                  <Image url="@images/OIP.jpeg" />
+                  <Image url="@images/12 rules of life.jpeg" />
                </image>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="50.0" offsetX="-4.0" offsetY="4.0" radius="24.5" width="50.0">
