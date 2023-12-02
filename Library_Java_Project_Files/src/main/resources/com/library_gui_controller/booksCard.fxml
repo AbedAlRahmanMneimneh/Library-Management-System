@@ -10,11 +10,11 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" prefHeight="130.0" prefWidth="556.0" style="-fx-background-radius: 20; -fx-background-color: #e1e1e1; -fx-border-color: #464d73; -fx-border-radius: 20; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryint.bookCardController">
+<HBox alignment="CENTER" prefHeight="130.0" prefWidth="556.0" style="-fx-background-radius: 20; -fx-background-color: #e1e1e1; -fx-border-color: #464d73; -fx-border-radius: 20; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.bookCardController">
    <children>
       <ImageView fx:id="image" fitHeight="110.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
          <image>
-            <Image url="@images/OIP.jpeg" />
+            <Image url="@images/12 rules of life.jpeg" />
          </image>
          <effect>
             <DropShadow blurType="ONE_PASS_BOX" height="50.0" offsetX="-4.0" offsetY="4.0" radius="24.5" width="50.0">
