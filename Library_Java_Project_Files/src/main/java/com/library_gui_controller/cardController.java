@@ -9,7 +9,7 @@ import models.book;
 
 import java.io.File;
 
-public class cardController {
+public class CardController {
 
     @FXML
     private Label authors;

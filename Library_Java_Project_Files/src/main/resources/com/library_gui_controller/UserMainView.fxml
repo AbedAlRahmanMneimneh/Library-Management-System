@@ -15,7 +15,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="300.0" prefHeight="674.0" prefWidth="898.0" style="-fx-background-color: #7B81A6;" stylesheets="@styles/loginStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.HelloController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="300.0" prefHeight="674.0" prefWidth="898.0" style="-fx-background-color: #7B81A6;" stylesheets="@styles/loginStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.UserMainViewController">
    <center>
       <HBox prefHeight="784.0" prefWidth="1546.0" BorderPane.alignment="CENTER">
          <children>

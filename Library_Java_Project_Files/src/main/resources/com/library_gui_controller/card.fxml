@@ -10,13 +10,13 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<HBox style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.cardController">
+<HBox style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.CardController">
    <children>
       <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="280.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #464D73; -fx-border-width: 3; -fx-border-color: #464D73;">
          <children>
             <ImageView fx:id="image" fitHeight="110.0" fitWidth="74.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                <image>
-                  <Image url="@images/12 rules of life.jpeg" />
+                  <Image url="@images/12 Rules Of Life.jpeg" />
                </image>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="50.0" offsetX="-4.0" offsetY="4.0" radius="24.5" width="50.0">
