@@ -1,4 +1,4 @@
-package com.example.libraryint;
+package com.library_gui_controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
