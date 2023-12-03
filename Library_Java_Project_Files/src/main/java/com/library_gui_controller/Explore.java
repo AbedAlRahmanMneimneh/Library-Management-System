@@ -29,7 +29,7 @@ public class Explore implements Initializable {
         b.setTitle("12 Rules Of Life");
         b.setAuthors("Jordan Peterson");
         b.setGenre("Philosophy");
-        b.setImgSrc("Library_Java_Project_Files/src/main/resources/com/library_gui_controller/images/12 Rules Of Life.jpeg");
+        b.setImgSrc("src/main/resources/com/library_gui_controller/images/12 Rules Of Life.jpeg");
         b.setDesc("In '12 Rules of Life,' Jordan Peterson explores profound principles derived from psychology, philosophy, mythology, and personal anecdotes. Delve into this transformative guide to discover practical wisdom for navigating the complexities of existence.");
 
         bl.add(b);
@@ -38,7 +38,7 @@ public class Explore implements Initializable {
         b.setTitle("Effective Java");
         b.setAuthors("Addison Wesley");
         b.setGenre("Programming");
-        b.setImgSrc("Library_Java_Project_Files/src/main/resources/com/library_gui_controller/images/EffectiveJava.png");
+        b.setImgSrc("src/main/resources/com/library_gui_controller/images/EffectiveJava.png");
         b.setDesc("Written by Joshua Bloch, 'Effective Java' is a comprehensive guide for Java developers seeking to write robust and maintainable code. With practical advice and coding examples, this book is an essential resource for mastering the intricacies of Java programming.");
 
         bl.add(b);
@@ -47,7 +47,7 @@ public class Explore implements Initializable {
         b.setTitle("Outlawed");
         b.setAuthors("Anna North");
         b.setGenre("Historical Fiction");
-        b.setImgSrc("Library_Java_Project_Files/src/main/resources/com/library_gui_controller/images/Outlawed.jpeg");
+        b.setImgSrc("src/main/resources/com/library_gui_controller/images/Outlawed.jpeg");
         b.setDesc("Anna North's 'Outlawed' is a gripping historical fiction set in a reimagined American West. Follow the journey of Ada, a young woman who becomes an outlaw to survive, as North weaves a tale of identity, resilience, and the quest for justice.");
 
         bl.add(b);
@@ -56,7 +56,7 @@ public class Explore implements Initializable {
         b.setTitle("Mona");
         b.setAuthors("Pola Oloixarac");
         b.setGenre("Literary Fiction");
-        b.setImgSrc("Library_Java_Project_Files/src/main/resources/com/library_gui_controller/images/Mona.jpg");
+        b.setImgSrc("src/main/resources/com/library_gui_controller/images/Mona.jpg");
         b.setDesc("Pola Oloixarac's 'Mona' is a literary tour de force that explores the intersection of science, art, and the human experience. With rich prose and complex characters, Oloixarac crafts a narrative that challenges conventions and captivates the reader.");
 
         bl.add(b);
@@ -65,7 +65,7 @@ public class Explore implements Initializable {
         b.setTitle("With Teeth");
         b.setAuthors("Kristen Arnett");
         b.setGenre("Domestic Fiction");
-        b.setImgSrc("Library_Java_Project_Files/src/main/resources/com/library_gui_controller/images/With Teeth.jpg");
+        b.setImgSrc("src/main/resources/com/library_gui_controller/images/With Teeth.jpg");
         b.setDesc("Kristen Arnett's 'With Teeth' is a poignant exploration of family dynamics, queerness, and the complexities of motherhood. Through vivid storytelling and authentic characters, Arnett invites readers to reflect on the intricacies of modern family life.");
 
         bl.add(b);
@@ -74,7 +74,7 @@ public class Explore implements Initializable {
         b.setTitle("After the Sun");
         b.setAuthors("Jonas Eika");
         b.setGenre("Short Stories");
-        b.setImgSrc("Library_Java_Project_Files/src/main/resources/com/library_gui_controller/images/After The Sun.jpg");
+        b.setImgSrc("src/main/resources/com/library_gui_controller/images/After The Sun.jpg");
         b.setDesc("Explore the thought-provoking world of Jonas Eika's short stories in 'After the Sun.' With a blend of social commentary and imaginative storytelling, Eika takes readers on a journey through diverse landscapes, offering unique perspectives on the human condition.");
 
         bl.add(b);
