@@ -90,7 +90,7 @@ public class Explore implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("card.fxml"));
                 HBox box = fxmlLoader.load();
-                CardController sampleCardController =fxmlLoader.getController();
+                cardController sampleCardController =fxmlLoader.getController();
                 sampleCardController.setData(b);
                 recomendationHB.getChildren().add(box);
             }
@@ -102,7 +102,7 @@ public class Explore implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("booksCard.fxml"));
                 HBox box = fxmlLoader.load();
-                BookCardController sampleCardController = fxmlLoader.getController();
+                bookCardController sampleCardController = fxmlLoader.getController();
                 sampleCardController.setData(b);
                 booksHB.getChildren().add(box);
             }

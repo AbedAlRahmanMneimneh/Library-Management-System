@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<HBox style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.CardController">
+<HBox style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.cardController">
    <children>
       <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="280.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #464D73; -fx-border-width: 3; -fx-border-color: #464D73;">
          <children>
