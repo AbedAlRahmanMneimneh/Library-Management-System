@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" prefHeight="130.0" prefWidth="556.0" style="-fx-background-radius: 20; -fx-background-color: #e1e1e1; -fx-border-color: #464d73; -fx-border-radius: 20; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.bookCardController">
+<HBox fx:id="bookcard" alignment="CENTER" onMouseClicked="#goToBookInfo" prefHeight="130.0" prefWidth="556.0" style="-fx-background-radius: 20; -fx-background-color: #e1e1e1; -fx-border-color: #464d73; -fx-border-radius: 20; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.bookCardController">
    <children>
       <ImageView fx:id="image" fitHeight="110.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
          <image>

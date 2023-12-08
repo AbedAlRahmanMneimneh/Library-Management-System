@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.bookInfoController">
+   <children>
+      <ScrollPane fitToWidth="true" maxHeight="600.0" maxWidth="900.0" minWidth="930.0" prefHeight="600.0">
+         <content>
+            <VBox alignment="TOP_CENTER" minHeight="600.0" minWidth="700.0" style="-fx-background-color: #f8f8f8;">
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
+            
+                <HBox spacing="20.0" VBox.vgrow="NEVER">
+                    <!-- Book Cover Image -->
+                    <ImageView fx:id="image" fitHeight="300.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                        <image>
+                            <Image url="@images/12 rules of life.jpeg" />
+                        </image>
+                        <effect>
+                            <DropShadow blurType="GAUSSIAN" height="31.0" offsetX="10.0" offsetY="10.0" radius="15.0" width="31.0">
+                                <color>
+                                    <Color red="0.18449999392032623" green="0.27742499113082886" blue="0.44999998807907104" opacity="0.6000000238418579" />
+                                </color>
+                            </DropShadow>
+                        </effect>
+                    </ImageView>
+                  <VBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="title" alignment="CENTER" text="12 Rules Of Life" textFill="#464d73" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial Bold" size="36.0" />
+                           </font>
+                        </Label>
+                  
+                          <!-- Book Details -->
+                          <GridPane prefWidth="659.0" VBox.vgrow="ALWAYS">
+                              <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                  
+                              <VBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1">
+                                  <Label fx:id="genre" text="Genre: Philosophy" textFill="#464d73">
+                                      <font>
+                                          <Font name="Arial" size="16.0" />
+                                      </font>
+                                  </Label>
+                                  <!-- Add other details as needed -->
+                              </VBox>
+                  
+                              <VBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="2">
+                                  <Label fx:id="edition" text="Edition: 1" textFill="#464d73">
+                                      <font>
+                                          <Font name="Arial" size="16.0" />
+                                      </font>
+                                  </Label>
+                                  <!-- Add other details as needed -->
+                              </VBox>
+                               <Label fx:id="author" text="Author: Jordan Peterson" textFill="#464d73" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                   <font>
+                                       <Font name="Arial" size="16.0" />
+                                   </font>
+                               </Label>
+                               <Label fx:id="publisher" text="Publisher: John Doe" textFill="#464d73" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                   <font>
+                                       <Font name="Arial" size="16.0" />
+                                   </font>
+                               </Label>
+                               <Label fx:id="date" text="Date Published: XXXXXXXX" textFill="#464d73" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                   <font>
+                                       <Font name="Arial" size="16.0" />
+                                   </font>
+                               </Label>
+                               <Label fx:id="nbrInStock" text="Number in Stock: 5" textFill="#464d73" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                   <font>
+                                       <Font name="Arial" size="16.0" />
+                                   </font>
+                               </Label>
+                          </GridPane>
+                        <Label fx:id="available" text="Available" textFill="#464d73">
+                           <font>
+                              <Font name="Arial Italic" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                </HBox>
+            
+      
+                <Label fx:id="desc" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu lobortis elementum nibh tellus molestie. Posuere urna nec tincidunt praesent. Accumsan tortor posuere ac ut. Aenean et tortor at risus viverra adipiscing. Penatibus et magnis dis parturient. Vel pharetra vel turpis nunc eget. Pellentesque nec nam aliquam sem et. Sed viverra tellus in hac habitasse platea. Nulla aliquet enim tortor at auctor. Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget nunc scelerisque viverra mauris. Donec ultrices tincidunt arcu non sodales. Amet purus gravida quis blandit turpis. Feugiat in ante metus dictum at tempor commodo ullamcorper a. Accumsan tortor posuere ac ut. Est velit egestas dui id ornare. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Nisi quis eleifend quam adipiscing vitae proin.Risus pretium quam vulputate dignissim. Faucibus nisl tincidunt eget nullam non nisi. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. Euismod in pellentesque massa placerat. " textFill="#2F4673" wrapText="true" VBox.vgrow="ALWAYS">
+                    <font>
+                        <Font name="Arial" size="14.0" />
+                    </font>
+                    <padding>
+                        <Insets top="20.0" />
+                    </padding>
+                </Label>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

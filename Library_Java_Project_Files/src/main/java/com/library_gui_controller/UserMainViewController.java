@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -51,6 +52,8 @@ public class UserMainViewController implements Initializable {
             fl.setLocation(getClass().getResource("explore.fxml"));
             VBox vb = fl.load();
             scene.getChildren().setAll(vb);
+            Explore exp = fl.getController();
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -73,6 +76,16 @@ public class UserMainViewController implements Initializable {
         try {
             FXMLLoader fl = new FXMLLoader();
             fl.setLocation(getClass().getResource("rooms.fxml"));
+            VBox vb = fl.load();
+            scene.getChildren().setAll(vb);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    void goToBookInfo(MouseEvent event) {
+        try {
+            FXMLLoader fl = new FXMLLoader();
+            fl.setLocation(getClass().getResource("booksinfo.fxml"));
             VBox vb = fl.load();
             scene.getChildren().setAll(vb);
         } catch (IOException e) {

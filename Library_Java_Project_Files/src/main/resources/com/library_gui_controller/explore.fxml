@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="900.0" prefWidth="910.0" style="-fx-background-color: #d1d1d1;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.Explore">
+<VBox fx:id="vbm" prefHeight="900.0" prefWidth="910.0" style="-fx-background-color: #d1d1d1;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.Explore">
    <children>
       <Label prefHeight="22.0" prefWidth="220.0" text="Editors Recommendations" textFill="#464d73">
          <font>

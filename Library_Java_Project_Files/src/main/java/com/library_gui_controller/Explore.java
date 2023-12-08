@@ -21,6 +21,10 @@ public class Explore implements Initializable {
     @FXML
     private HBox recomendationHB;
 
+    @FXML
+    private VBox vbm;
+
+
     List<book> recommendedList(){
         book b;
         List<book> bl = new ArrayList<book>();

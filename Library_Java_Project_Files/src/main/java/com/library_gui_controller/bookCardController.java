@@ -1,13 +1,18 @@
 package com.library_gui_controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import models.book;
 
 import java.io.File;
+import java.io.IOException;
 
 public class bookCardController {
 
@@ -28,6 +33,14 @@ public class bookCardController {
 
     @FXML
     private Label title;
+
+    @FXML
+    private HBox bookcard;
+
+    @FXML
+    void goToBookInfo(MouseEvent event) {
+
+    }
 
     public void setData(book b) {
         File file = new File(b.getImgSrc());
