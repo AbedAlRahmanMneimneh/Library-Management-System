@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" prefHeight="130.0" prefWidth="556.0" style="-fx-background-radius: 20; -fx-background-color: #e1e1e1; -fx-border-color: #464d73; -fx-border-radius: 20; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.bookCardController">
+   <children>
+      <ImageView fx:id="image" fitHeight="110.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+         <image>
+            <Image url="@images/12 Rules Of Life.jpeg" />
+         </image>
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX" height="50.0" offsetX="-4.0" offsetY="4.0" radius="24.5" width="50.0">
+               <color>
+                  <Color opacity="0.5" />
+               </color>
+            </DropShadow>
+         </effect>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </ImageView>
+      <VBox maxWidth="300.0" minWidth="180.0" prefHeight="124.0">
+         <children>
+            <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" prefHeight="70.0" prefWidth="190.0" text="12 Rules Of Life" textFill="#464d73" wrapText="true">
+               <font>
+                  <Font name="Georgia Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="genre" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="188.0" text="Philosophy" textFill="#464d73" wrapText="true">
+               <font>
+                  <Font name="Georgia" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="authors" alignment="CENTER" contentDisplay="CENTER" prefHeight="19.0" prefWidth="190.0" text="by: Jordan Peterson" textFill="#464d73" underline="true" wrapText="true">
+               <font>
+                  <Font name="Georgia" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <HBox prefHeight="124.0" prefWidth="1100.0" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="desc" alignment="CENTER" contentDisplay="CENTER" prefHeight="124.0" prefWidth="1100.0" style="-fx-border-radius: 0 20 0 0; -fx-border-width: 0 0 0 2; -fx-border-color: #2F4673;" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu lobortis elementum nibh tellus molestie. Posuere urna nec tincidunt praesent. Accumsan tortor posuere ac ut. Aenean et tortor at risus viverra adipiscing. Penatibus et magnis dis parturient. Vel pharetra vel turpis nunc eget. Pellentesque nec nam aliquam sem et. Sed viverra tellus in hac habitasse platea. Nulla aliquet enim tortor at auctor. Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Eget nunc scelerisque viverra mauris. Donec ultrices tincidunt arcu non sodales. Amet purus gravida quis blandit turpis. Feugiat in ante metus dictum at tempor commodo ullamcorper a. Accumsan tortor posuere ac ut. Est velit egestas dui id ornare. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Nisi quis eleifend quam adipiscing vitae proin.Risus pretium quam vulputate dignissim. Faucibus nisl tincidunt eget nullam non nisi. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. Euismod in pellentesque massa placerat. Amet aliquam id diam maecenas ultricies mi eget. Urna nunc id cursus metus aliquam eleifend mi in nulla. Sed enim ut sem viverra aliquet eget sit amet tellus. Eu feugiat pretium nibh ipsum consequat nisl vel pretium. Eget sit amet tellus cras adipiscing. Turpis egestas integer eget aliquet nibh praesent.Vel turpis nunc eget lorem dolor sed viverra ipsum nunc. Congue eu consequat ac felis donec et odio pellentesque. Amet commodo nulla facilisi nullam vehicula ipsum a arcu. Pretium aenean pharetra magna ac placerat. In dictum non consectetur a erat nam. Nisi quis eleifend quam adipiscing vitae. Sed blandit libero volutpat sed cras. Gravida dictum fusce ut placerat. Ut venenatis tellus in metus vulputate. Morbi tristique senectus et netus et. Viverra vitae congue eu consequat ac felis donec et. Id semper risus in hendrerit gravida rutrum quisque non tellus. Libero volutpat sed cras ornare arcu dui vivamus arcu felis. Neque sodales ut etiam sit amet nisl purus in mollis. Ut diam quam nulla porttitor. Diam vel quam elementum pulvinar etiam. Netus et malesuada fames ac turpis egestas sed. Velit scelerisque in dictum non consectetur. In arcu cursus euismod quis. Pellentesque sit amet porttitor eget dolor morbi non arcu.Ornare massa eget egestas purus viverra accumsan in nisl nisi. A cras semper auctor neque vitae tempus quam pellentesque. Massa vitae tortor condimentum lacinia quis vel eros. Hac habitasse platea dictumst quisque sagittis. Magna eget est lorem ipsum dolor sit amet. Pretium nibh ipsum consequat nisl vel pretium lectus quam id. Faucibus pulvinar elementum integer enim. Tristique senectus et netus et. Dolor purus non enim praesent elementum facilisis leo vel fringilla. At in tellus integer feugiat scelerisque varius. Massa placerat duis ultricies lacus sed turpis. Magna ac placerat vestibulum lectus mauris ultrices eros. Et malesuada fames ac turpis egestas sed tempus urna. Diam quam nulla porttitor massa. In arcu cursus euismod quis viverra nibh cras pulvinar. At volutpat diam ut venenatis tellus in. Elit pellentesque habitant morbi tristique senectus et. Cursus metus aliquam eleifend mi in nulla. Aliquet nec ullamcorper sit amet risus.Leo vel orci porta non. Egestas diam in arcu cursus euismod. Sagittis purus sit amet volutpat consequat mauris nunc congue nisi. Risus nullam eget felis eget nunc lobortis. Neque gravida in fermentum et sollicitudin ac. Massa eget egestas purus viverra accumsan in nisl. Morbi quis commodo odio aenean sed adipiscing diam donec. Sed viverra tellus in hac habitasse platea dictumst. A iaculis at erat pellentesque adipiscing. Id neque aliquam vestibulum morbi.Ac turpis egestas maecenas pharetra convallis. Proin nibh nisl condimentum id venenatis. Magnis dis parturient montes nascetur ridiculus mus mauris. Magna fringilla urna porttitor rhoncus. Nisl condimentum id venenatis a condimentum vitae sapien pellentesque habitant. Pretium fusce id velit ut. Tristique nulla aliquet enim tortor at. Nunc lobortis mattis aliquam faucibus purus in massa tempor. Placerat in egestas erat imperdiet sed. Commodo elit at imperdiet dui accumsan sit.Velit laoreet id donec ultrices tincidunt arcu non sodales. Porttitor massa id neque aliquam vestibulum morbi blandit cursus risus. Dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc. Dictum sit amet justo donec enim diam vulputate ut. In hac habitasse platea dictumst vestibulum rhoncus. Et egestas quis ipsum suspendisse ultrices gravida. Tortor id aliquet lectus proin nibh nisl condimentum id. Sit amet consectetur adipiscing elit ut aliquam purus sit amet. A diam sollicitudin tempor id eu. Tortor posuere ac ut consequat semper viverra nam libero justo. Molestie at elementum eu facilisis sed odio. Amet nisl purus in mollis nunc sed id semper risus. Massa tincidunt nunc pulvinar sapien et. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Leo in vitae turpis massa sed elementum tempus. Mauris rhoncus aenean vel elit.Massa enim nec dui nunc mattis enim ut. Diam in arcu cursus euismod quis viverra. Quam viverra orci sagittis eu volutpat odio. Aliquam etiam erat velit scelerisque in dictum. Tellus orci ac auctor augue mauris augue neque gravida. Sed velit dignissim sodales ut eu sem. Viverra ipsum nunc aliquet bibendum enim. Sollicitudin aliquam ultrices sagittis orci. Sit amet aliquam id diam maecenas ultricies mi eget mauris. Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Habitasse platea dictumst quisque sagittis purus sit amet volutpat. Ultrices in iaculis nunc sed augue lacus viverra vitae. Enim tortor at auctor urna nunc id cursus. Ornare massa eget egestas purus viverra. Ornare suspendisse sed nisi lacus sed viverra tellus in. Sed vulputate mi sit amet mauris commodo quis imperdiet massa. In iaculis nunc sed augue lacus. Tempus imperdiet nulla malesuada pellentesque elit eget gravida cum sociis.Sit amet aliquam id diam maecenas ultricies mi. Sit amet consectetur adipiscing elit. Interdum velit laoreet id donec. Semper quis lectus nulla at volutpat diam ut venenatis. Enim ut tellus elementum sagittis vitae et leo. Feugiat sed lectus vestibulum mattis. Adipiscing enim eu turpis egestas pretium aenean pharetra magna ac. Congue quisque egestas diam in. Ut consequat semper viverra nam libero justo. Duis convallis convallis tellus id interdum. Pulvinar mattis nunc sed blandit libero volutpat sed. Nec ullamcorper sit amet risus nullam.Amet consectetur adipiscing elit ut aliquam purus sit. Nec dui nunc mattis enim ut tellus elementum sagittis vitae. Non odio euismod lacinia at quis risus sed vulputate. Donec pretium vulputate sapien nec sagittis. Eget aliquet nibh praesent tristique magna sit amet purus. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Vulputate mi sit amet mauris commodo quis imperdiet. Libero nunc consequat interdum varius sit amet mattis. Sed elementum tempus egestas sed sed risus pretium quam. Sit amet cursus sit amet dictum sit amet justo donec. Libero enim sed faucibus turpis in eu mi bibendum. Ac placerat vestibulum lectus mauris ultrices eros in. Mi proin sed libero enim sed faucibus turpis in eu. Proin sed libero enim sed faucibus turpis. Pellentesque dignissim enim sit amet venenatis urna cursus. Eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Lectus arcu bibendum at varius. Cras ornare arcu dui vivamus arcu felis bibendum ut tristique." textFill="#7b81a6" wrapText="true">
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
+               <padding>
+                  <Insets left="2.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets left="10.0" />
+   </padding>
+   <effect>
+      <DropShadow height="25.0" offsetX="-5.0" offsetY="5.0" radius="12.0" width="25.0">
+         <color>
+            <Color opacity="0.5" />
+         </color>
+      </DropShadow>
+   </effect>
+</HBox>
