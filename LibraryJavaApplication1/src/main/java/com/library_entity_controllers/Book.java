@@ -17,8 +17,39 @@ public class Book {
     private String author;
 
 
+    public Book(Integer ISBN, String title, Integer edition, String genre, Integer numOfPages, String publisher, String datePublished,
+                Integer numberInStock, Integer available, String bookDescription, File bookImage, String author) {
+        this.ISBN = ISBN;
+        this.title = title;
+        this.edition = edition;
+        this.genre = genre;
+        this.numOfPages = numOfPages;
+        this.publisher = publisher;
+        this.datePublished = datePublished;
+        this.numberInStock = numberInStock;
+        this.available = available;
+        this.bookDescription = bookDescription;
+        this.bookImage = bookImage;
+        this.author = author;
+    }
 
+    public Book() {
+    }
 
+    public Book(Integer ISBN, String title, Integer edition, String genre, Integer numOfPages, String publisher,
+                String datePublished, Integer available, String bookDescription, File bookImage, String author) {
+        this.ISBN = ISBN;
+        this.title = title;
+        this.edition = edition;
+        this.genre = genre;
+        this.numOfPages = numOfPages;
+        this.publisher = publisher;
+        this.datePublished = datePublished;
+        this.available = available;
+        this.bookDescription = bookDescription;
+        this.bookImage = bookImage;
+        this.author = author;
+    }
 
     public Integer getISBN() {
 
