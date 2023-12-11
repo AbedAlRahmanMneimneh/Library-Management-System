@@ -16,7 +16,5 @@ public class FileDialogueSelect {
         return selected;
 
     }
-    public static void main(String args []) throws IOException {
-        openFileDialogue();
-    }
+
 }

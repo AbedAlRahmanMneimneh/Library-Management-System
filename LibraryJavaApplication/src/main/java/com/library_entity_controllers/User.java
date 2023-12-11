@@ -1,13 +1,13 @@
 package com.library_entity_controllers;
 
 public class User {
-    private int userId;
+    private int clientId;
     private String firstName,lastName;
     private int phoneNo, landLine;
     private String email, dateOfBirth;
 
     public User(int userId, String firstName, String lastName, int phoneNo, int landLine, String email, String dateOfBirth) {
-        this.userId = userId;
+        this.clientId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNo = phoneNo;
@@ -25,12 +25,12 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getClientId() {
+        return clientId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
     }
 
     public String getFirstName() {
