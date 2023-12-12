@@ -17,5 +17,8 @@ public class Library_Client_User_Connector {
         Statement stmt = clientconnection().createStatement();
         return stmt;
     }
+    public static void main(String args[]) throws SQLException {
+        Statement stmt = clientstatement();
+    }
 
 }

@@ -17,4 +17,7 @@ public class Library_Staff_User_Controller {
         Statement stmt = staffconnection().createStatement();
         return stmt;
     }
+    public static void main(String args[]) throws SQLException {
+        Statement stmt = staffstatement();
+    }
 }
