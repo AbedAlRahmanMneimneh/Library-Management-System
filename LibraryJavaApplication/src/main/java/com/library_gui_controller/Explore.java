@@ -22,7 +22,7 @@ public class Explore implements Initializable {
     @FXML
     private HBox recomendationHB;
 
-    List<Book> recommendedList(){
+    public List<Book> recommendedList(){
         Book b;
         List<Book> bl = new ArrayList<Book>();
 
