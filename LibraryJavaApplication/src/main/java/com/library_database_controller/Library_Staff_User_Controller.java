@@ -8,16 +8,13 @@ import java.sql.Statement;
 public class Library_Staff_User_Controller {
     public static Connection staffconnection() throws SQLException {
         Connection conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/libappschem","Library_Client_User","IAmAClient!");
+                "jdbc:mysql://localhost:3306/libappschem", "Library_Client_User", "IAmAClient!");
         return conn;
     }
 
-    public static Statement staffstatement() throws SQLException{
+    public static Statement staffstatement() throws SQLException {
 
         Statement stmt = staffconnection().createStatement();
         return stmt;
-    }
-    public static void main(String args[]) throws SQLException {
-        Statement stmt = staffstatement();
     }
 }
