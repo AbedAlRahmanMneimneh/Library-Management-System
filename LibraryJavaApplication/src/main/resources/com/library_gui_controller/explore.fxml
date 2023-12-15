@@ -7,17 +7,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="900.0" prefWidth="910.0" style="-fx-background-color: #d1d1d1;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.Explore">
+<VBox fx:id="vbm" prefHeight="900.0" prefWidth="910.0" style="-fx-background-color: #d1d1d1;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.Explore">
    <children>
       <Label prefHeight="22.0" prefWidth="220.0" text="Editors Recommendations" textFill="#464d73">
          <font>
             <Font name="Georgia" size="18.0" />
          </font>
       </Label>
-      <ScrollPane fitToHeight="true" prefHeight="370.0" prefWidth="898.0" VBox.vgrow="ALWAYS">
+      <ScrollPane fitToHeight="true" minHeight="157.0" prefWidth="898.0" VBox.vgrow="ALWAYS">
          <content>
-            <HBox fx:id="recomendationHB" prefHeight="145.0" prefWidth="1500.0" spacing="10.0" style="-fx-background-color: #e1e1e1;">
+            <HBox fx:id="recomendationHB" minHeight="140.0" prefHeight="130.0" prefWidth="1500.0" spacing="10.0" style="-fx-background-color: #e1e1e1;">
                <padding>
                   <Insets left="10.0" />
                </padding>

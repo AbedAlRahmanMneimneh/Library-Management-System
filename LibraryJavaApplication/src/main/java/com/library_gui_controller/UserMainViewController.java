@@ -44,6 +44,29 @@ public class UserMainViewController implements Initializable {
     @FXML
     private Label userNameLabel;
 
+    private static UserMainViewController instance;
+
+    public UserMainViewController(){
+        instance = this;
+    }
+
+    public static UserMainViewController getInstance(){
+        return instance;
+    }
+
+    FXMLLoader goToBookInfo() {
+        FXMLLoader fl;
+        try {
+            fl = new FXMLLoader();
+            fl.setLocation(getClass().getResource("booksInfo.fxml"));
+
+            VBox vb = fl.load();
+            scene.getChildren().setAll(vb);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return fl;
+    }
     @FXML
     void goToExplore(ActionEvent event) {
         try {

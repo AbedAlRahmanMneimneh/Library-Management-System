@@ -93,6 +93,7 @@ public class Explore implements Initializable {
                 HBox box = fxmlLoader.load();
                 cardController sampleCardController =fxmlLoader.getController();
                 sampleCardController.setData(b);
+                sampleCardController.setBook(b);
                 recomendationHB.getChildren().add(box);
             }
         } catch (IOException e) {
@@ -105,6 +106,7 @@ public class Explore implements Initializable {
                 HBox box = fxmlLoader.load();
                 bookCardController sampleCardController = fxmlLoader.getController();
                 sampleCardController.setData(b);
+                sampleCardController.setBook(b);
                 booksHB.getChildren().add(box);
             }
         } catch (IOException e) {
