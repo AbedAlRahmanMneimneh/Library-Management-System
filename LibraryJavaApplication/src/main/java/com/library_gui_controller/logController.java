@@ -61,6 +61,7 @@ public class logController {
         else{
             //ktob el methods la tshayik mn el database hon.
             loggedin=true;
+            if(loggedin)UserMainViewController.getInstance().goToOverview(event);
         }
 
     }
