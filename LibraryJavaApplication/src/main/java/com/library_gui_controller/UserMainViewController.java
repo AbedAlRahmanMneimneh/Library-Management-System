@@ -105,7 +105,29 @@ public class UserMainViewController implements Initializable {
 
     @FXML
     void openUser(ActionEvent event) {
+        FXMLLoader fl = new FXMLLoader();
+        fl.setLocation(getClass().getResource("login-signup.fxml"));
+        logController lc = fl.getController();
 
+        //send him to login scene.
+        try {
+            VBox vb = fl.load();
+            scene.getChildren().setAll(vb);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        //if he is logged in then send him to overview scene.
+        boolean logged = lc.isLoggedin();
+        if (logged) {
+            try {
+                fl.setLocation(getClass().getResource("overview.fxml"));
+                VBox vb = fl.load();
+                scene.getChildren().setAll(vb);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     @FXML

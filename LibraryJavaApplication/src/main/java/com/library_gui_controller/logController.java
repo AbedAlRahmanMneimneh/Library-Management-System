@@ -46,6 +46,12 @@ public class logController {
 
     boolean loginMatch=false;
     boolean signupMatch=false;
+
+    public boolean isLoggedin() {
+        return loggedin;
+    }
+
+    boolean loggedin=false;
     @FXML
     void login(ActionEvent event) {
         // to get the text from a textfield use example.getText
@@ -54,6 +60,7 @@ public class logController {
         if(loginMatch){WrongCredentials.setVisible(true);}
         else{
             //ktob el methods la tshayik mn el database hon.
+            loggedin=true;
         }
 
     }
@@ -69,7 +76,9 @@ public class logController {
         if(!emConfirm.equals(em)){emailNoMatch.setVisible(true);signupMatch=false;}else{signupMatch=true;}
         if(signupMatch){
             //ktob el methods la tshayik mn el database hon.
+            loggedin=true;
         }
     }
+
 
 }
