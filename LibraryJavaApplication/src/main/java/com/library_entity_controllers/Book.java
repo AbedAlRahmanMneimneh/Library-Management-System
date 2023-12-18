@@ -184,6 +184,13 @@ public class Book {
         String mimetype = new MimetypesFileTypeMap().getContentType(f);
         String type = mimetype.split("/")[0];
         if (type.equals("image")) {
+            try{
+               new File("src/main/resources/com/library_gui_controller/images/" + f.getName()).delete();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+
             FileInputStream in = new FileInputStream(f);
             FileOutputStream out = new FileOutputStream("C:\\Users\\user\\Mahmoud\\GitHub Repos\\DBS_Project\\Library-Management-System\\LibraryJavaApplication\\src\\main\\resources\\com\\library_gui_controller\\images\\" + f.getName());
             BufferedInputStream bin = new BufferedInputStream(in);
@@ -196,7 +203,7 @@ public class Book {
             bin.close();
             bout.close();
         } else {
-            throw new IncorrectFileTypeException("The File is not Image");
+            throw new IncorrectFileTypeException("The File is not an image");
         }
 
         return f.getName();
