@@ -46,6 +46,8 @@ public class UserMainViewController implements Initializable {
 
     private static UserMainViewController instance;
 
+
+
     public UserMainViewController(){
         instance = this;
     }
@@ -95,7 +97,7 @@ public class UserMainViewController implements Initializable {
     void goToRooms(ActionEvent event) {
         try {
             FXMLLoader fl = new FXMLLoader();
-            fl.setLocation(getClass().getResource("rooms.fxml"));
+            fl.setLocation(getClass().getResource(rooms));
             VBox vb = fl.load();
             scene.getChildren().setAll(vb);
         } catch (IOException e) {
@@ -132,7 +134,15 @@ public class UserMainViewController implements Initializable {
             }
         }
     }
-
+    private String rooms="rooms.fxml";
+    public void setStaffScene(){
+        roomsBT.setText("Admin");
+        rooms="adminPage.fxml";
+    }
+    public void setUserScene(){
+        roomsBT.setText("About Us");
+        rooms="rooms.fxml";
+    }
     @FXML
     void searchBook(ActionEvent event) {
         try {
