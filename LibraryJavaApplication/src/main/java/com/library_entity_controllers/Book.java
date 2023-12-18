@@ -15,7 +15,7 @@ public class Book {
     private Integer numOfPages;
     private String publisher;
     private String datePublished;
-    private Integer numberInStock;
+    private Integer numberInStock =0;
     private Integer available;
     private String bookDescription;
     private File bookImage;

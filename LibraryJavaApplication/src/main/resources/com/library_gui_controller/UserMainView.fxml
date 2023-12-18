@@ -115,7 +115,7 @@
                            </cursor>
                         </Button>
                         <Separator orientation="VERTICAL" prefHeight="26.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                        <Button fx:id="roomsBT" alignment="CENTER" mnemonicParsing="false" onAction="#goToRooms" prefHeight="34.0" prefWidth="160.0" text="Rooms &amp; Computers" textFill="#e1e1e1" HBox.hgrow="ALWAYS">
+                        <Button fx:id="roomsBT" alignment="CENTER" mnemonicParsing="false" onAction="#goToRooms" prefHeight="34.0" prefWidth="160.0" text="About us" textFill="#e1e1e1" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>

@@ -1,5 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="900.0" prefWidth="910.0" style="-fx-background-color: #2F4673;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.Overview" />
+<VBox xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.Overview">
+    <children>
+        <ScrollPane fitToWidth="true" minWidth="0.0" style="-fx-background-color: #f8f8f8;" VBox.vgrow="ALWAYS">
+            <content>
+                <VBox alignment="TOP_CENTER" style="-fx-background-color: #f8f8f8;">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+
+                    <HBox spacing="20.0" VBox.vgrow="NEVER">
+                        <!-- Book Cover Image -->
+                        <ImageView fx:id="image" fitHeight="157.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                            <image>
+                                <Image url="@Icons/user.png" />
+                            </image>
+                            <effect>
+                                <DropShadow blurType="GAUSSIAN" height="31.0" offsetX="10.0" offsetY="10.0" radius="15.0" width="31.0">
+                                    <color>
+                                        <Color red="0.18449999392032623" green="0.27742499113082886" blue="0.44999998807907104" opacity="0.6000000238418579" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                        </ImageView>
+                        <VBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
+                            <children>
+
+                                <!-- Book Details -->
+                                <GridPane prefWidth="659.0" VBox.vgrow="ALWAYS">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+
+                                    <VBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1">
+                              <HBox>
+                                 <children>
+                                              <Label text="Username:" textFill="#464d73">
+                                                  <font>
+                                                      <Font name="Arial" size="16.0" />
+                                                  </font>
+                                              </Label>
+                                    <TextField fx:id="username" disable="true" text="john_doe" />
+                                 </children>
+                              </HBox>
+                                        <!-- Add other details as needed -->
+                                    </VBox>
+
+                                    <VBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                                        <Label fx:id="userID" text="User ID: 20XX0XXXX" textFill="#464d73">
+                                            <font>
+                                                <Font name="Arial" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <!-- Add other details as needed -->
+                                    </VBox>
+                           <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                              <children>
+                                          <Label text="Email:" textFill="#464d73">
+                                              <font>
+                                                  <Font name="Arial" size="16.0" />
+                                              </font>
+                                          </Label>
+                                 <TextField fx:id="email" disable="true" text=" someone@example.com" />
+                              </children>
+                           </HBox>
+                           <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+                              <children>
+                                          <Label text="Phone:" textFill="#464d73">
+                                              <font>
+                                                  <Font name="Arial" size="16.0" />
+                                              </font>
+                                          </Label>
+                                 <TextField fx:id="phone" disable="true" text=" 71234567" />
+                              </children>
+                           </HBox>
+                           <HBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+                              <children>
+                                          <Label text="Landline:" textFill="#464d73">
+                                              <font>
+                                                  <Font name="Arial" size="16.0" />
+                                              </font>
+                                          </Label>
+                                 <TextField fx:id="landline" disable="true" text=" 01234567" />
+                              </children>
+                           </HBox>
+                           <HBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                              <children>
+                                          <Label fx:id="dob" text="Date of Birth:" textFill="#464d73">
+                                              <font>
+                                                  <Font name="Arial" size="16.0" />
+                                              </font>
+                                          </Label>
+                              </children>
+                           </HBox>
+                           <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                              <children>
+                                 <Label text="Full Name:" textFill="#464d73">
+                                    <font>
+                                       <Font name="Arial" size="16.0" />
+                                    </font>
+                                 </Label>
+                                 <TextField fx:id="fullName" disable="true" text="John Doe" />
+                              </children>
+                           </HBox>
+                           <Label fx:id="gender" text="Gender: Male" textFill="#464d73" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                              <font>
+                                 <Font name="Arial" size="16.0" />
+                              </font>
+                           </Label>
+                                </GridPane>
+                        <HBox alignment="TOP_CENTER" spacing="10.0">
+                           <children>
+                              <Button fx:id="edit" mnemonicParsing="false" onAction="#edit" prefWidth="160.0" style="-fx-background-insets: 0; -fx-background-color: #464d73;" text="Edit" textFill="#e1e1e1" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Georgia" size="16.0" />
+                                 </font></Button>
+                              <Button fx:id="submit" mnemonicParsing="false" onAction="#submit" prefWidth="160.0" style="-fx-background-insets: 0; -fx-background-color: #464d73;" text="Submit" textFill="#e1e1e1" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Georgia" size="16.0" />
+                                 </font></Button>
+                           </children>
+                        </HBox>
+                            </children>
+                        </VBox>
+                    </HBox>
+               <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="300.0" vgap="20.0">
+                  <children>
+                     <Label fx:id="favoriteGenre" text="Favorite Genre:" textFill="#464d73" wrapText="true">
+                        <font>
+                           <Font name="Georgia" size="16.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="favoriteAuthor" text="Favorite Author:" textFill="#464d73" wrapText="true">
+                        <font>
+                           <Font name="Georgia" size="16.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="booksRented" text="Books Rented: " textFill="#464d73" wrapText="true">
+                        <font>
+                           <Font name="Georgia" size="16.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="pagesRead" text="Pages Read:" textFill="#464d73" wrapText="true">
+                        <font>
+                           <Font name="Georgia" size="16.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </FlowPane>
+                </VBox>
+            </content>
+            <effect>
+                <DropShadow blurType="GAUSSIAN" height="40.0" offsetX="6.0" offsetY="6.0" radius="19.5" width="40.0">
+                    <color>
+                        <Color opacity="0.6000000238418579" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </ScrollPane>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>

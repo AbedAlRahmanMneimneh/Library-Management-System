@@ -44,6 +44,29 @@ public class UserMainViewController implements Initializable {
     @FXML
     private Label userNameLabel;
 
+    private static UserMainViewController instance;
+
+    public UserMainViewController(){
+        instance = this;
+    }
+
+    public static UserMainViewController getInstance(){
+        return instance;
+    }
+
+    FXMLLoader goToBookInfo() {
+        FXMLLoader fl;
+        try {
+            fl = new FXMLLoader();
+            fl.setLocation(getClass().getResource("booksInfo.fxml"));
+
+            VBox vb = fl.load();
+            scene.getChildren().setAll(vb);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return fl;
+    }
     @FXML
     void goToExplore(ActionEvent event) {
         try {
@@ -82,12 +105,44 @@ public class UserMainViewController implements Initializable {
 
     @FXML
     void openUser(ActionEvent event) {
+        FXMLLoader fl = new FXMLLoader();
+        fl.setLocation(getClass().getResource("login-signup.fxml"));
+        LoginController lc = fl.getController();
 
+        //send him to login scene.
+        try {
+            VBox vb = fl.load();
+            scene.getChildren().setAll(vb);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        //if he is logged in then send him to overview scene.
+        boolean logged = lc.isLoggedin();
+        if (logged) {
+            try {
+                fl.setLocation(getClass().getResource("overview.fxml"));
+                VBox vb = fl.load();
+                scene.getChildren().setAll(vb);
+
+                //usernameLabel te3 el usermainview byes7ab el name te3 el logController
+                userNameLabel.setText(lc.name);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     @FXML
     void searchBook(ActionEvent event) {
-
+        try {
+            FXMLLoader fl = new FXMLLoader();
+            fl.setLocation(getClass().getResource("search.fxml"));
+            VBox vb = fl.load();
+            scene.getChildren().setAll(vb);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
