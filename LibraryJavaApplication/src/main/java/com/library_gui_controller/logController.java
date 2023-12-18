@@ -1,10 +1,9 @@
 package com.library_gui_controller;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class logController {
 
@@ -12,16 +11,31 @@ public class logController {
     private Label WrongCredentials;
 
     @FXML
-    private TextField confirmEmail;
+    private CheckBox asStaff;
 
     @FXML
     private TextField confirmPass;
 
     @FXML
-    private Label emailNoMatch;
+    private DatePicker dob;
 
     @FXML
     private TextField email;
+
+    @FXML
+    private Label emailNoMatch;
+
+    @FXML
+    private TextField firstname;
+
+    @FXML
+    private MenuButton gender;
+
+    @FXML
+    private TextField landline;
+
+    @FXML
+    private TextField lastname;
 
     @FXML
     private Button login;
@@ -36,6 +50,12 @@ public class logController {
     private Label passwordNoMatch;
 
     @FXML
+    private Label passwordNoMatch1;
+
+    @FXML
+    private TextField phone;
+
+    @FXML
     private Button signup;
 
     @FXML
@@ -44,28 +64,37 @@ public class logController {
     @FXML
     private TextField usernameLogin;
 
-    boolean loginMatch=false;
-    boolean signupMatch=false;
-    String name="";
+    boolean loginMatch = false;
+    boolean signupMatch = false;
+    boolean isStaff=false;
+
+    String name = "";
 
     public boolean isLoggedin() {
         return loggedin;
     }
 
-    boolean loggedin=false;
+    boolean loggedin = false;
+
     @FXML
     void login(ActionEvent event) {
         // to get the text from a textfield use example.getText
         String un = usernameLogin.getText();
         String pw = passLogin.getText();
-        if(loginMatch){WrongCredentials.setVisible(true);}
-        else{
+        if (loginMatch) {
+            WrongCredentials.setVisible(true);
+        } else {
             //ktob el methods la tshayik mn el database hon.
-            name=un;
-            loggedin=true;
-            if(loggedin)UserMainViewController.getInstance().goToOverview(event);
+            name = un;
+            loggedin = true;
+            if (loggedin) UserMainViewController.getInstance().goToOverview(event);
         }
 
+    }
+
+    @FXML
+    void setAsStaff(ActionEvent event) {
+        isStaff=!isStaff;
     }
 
     @FXML
@@ -74,13 +103,18 @@ public class logController {
         String pw = pass.getText();
         String pwConfirm = confirmPass.getText();
         String em = email.getText();
-        String emConfirm = confirmEmail.getText();
-        if(!pwConfirm.equals(pw)){passwordNoMatch.setVisible(true);signupMatch=false;}else{signupMatch=true;}
-        if(!emConfirm.equals(em)){emailNoMatch.setVisible(true);signupMatch=false;}else{signupMatch=true;}
-        if(signupMatch){
+
+        if (!pwConfirm.equals(pw)) {
+            passwordNoMatch.setVisible(true);
+            signupMatch = false;
+        } else {
+            signupMatch = true;
+        }
+
+        if (signupMatch) {
             //ktob el methods la tshayik mn el database hon.
-            name=un;
-            loggedin=true;
+            name = un;
+            loggedin = true;
         }
     }
 
