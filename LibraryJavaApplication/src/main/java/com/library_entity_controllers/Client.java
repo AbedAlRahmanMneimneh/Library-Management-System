@@ -141,5 +141,7 @@ public class Client {
     public void clientLogout(){
         client = null;
     }
-    public void signUp()
+    public void signUp(){
+
+    }
 }
