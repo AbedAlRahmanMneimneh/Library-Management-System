@@ -1,4 +1,4 @@
-package com.library_database_controller;
+package com.library_gui_controller;
 
 import javax.swing.*;
 import java.io.File;

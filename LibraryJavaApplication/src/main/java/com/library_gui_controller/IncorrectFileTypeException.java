@@ -1,4 +1,4 @@
-package com.library_database_controller;
+package com.library_gui_controller;
 
 public class IncorrectFileTypeException extends Exception {
     public IncorrectFileTypeException(String errorMessage) {
