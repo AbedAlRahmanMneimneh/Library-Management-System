@@ -1,27 +1,41 @@
 package com.library_gui_controller;
 
+
 import com.library_entity_controllers.Book;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class adminPage implements Initializable {
-
-    @FXML
-    private ChoiceBox<?> genreChoiceBox;
+    /***************************************************************************************************************
+     please replace the methods with the appropriate ones (Book.getDataBooks() and add_book() and ...).
+     For reference, the getDataBooks() method in the old controller had the following code:
+     public static ObservableList<Book> getDataBooks(){
+     Connection conn = mysqlconnect.Connectdb();
+     ObservableList<Book> list = FXCollections.observableArrayList();
+     try{
+     PreparedStatement pst = conn.prepareStatement("select * from book");
+     ResultSet rs = pst.executeQuery();
+     while(rs.next()){
+     list.add(new Book(rs.getInt("ISBN"),rs.getString("title"),
+     rs.getString("author"),rs.getString("publisher"),
+     rs.getInt("edition"), rs.getString("pubdate"),rs.getString("genre1") ));
+     }
+     } catch (Exception  e) {
+     }
+     return list;
+     }
+     **************************************************************************************************************/
     @FXML
     private TableView<Book> tableBooks;
+
     @FXML
     private TableColumn<Book, Integer> col_ISBN;
 
@@ -34,7 +48,6 @@ public class adminPage implements Initializable {
     @FXML
     private TableColumn<Book, String> col_genre1;
 
-
     @FXML
     private TableColumn<Book, String> col_pubdate;
 
@@ -45,53 +58,88 @@ public class adminPage implements Initializable {
     private TableColumn<Book, String> col_title;
 
     @FXML
-    private Tab tabText;
+    private TextField AuthorTF;
 
     @FXML
-    private Tab tabText1;
+    private TextField ISBNTF;
 
-    ObservableList<Book> listM;
+    @FXML
+    private TextField editionTF;
 
-    int index = -1;
-    String query = null;
-    Connection conn = null;
-    PreparedStatement pst = null;
-    ResultSet rs = null;
-    Book book = null;
+    @FXML
+    private TextField genreTF;
+
+    @FXML
+    private TextField pubDateTF;
+
+    @FXML
+    private TextField publisherTF;
+
+    @FXML
+    private TextField titleTF;
+
+    @FXML
+    private Button addButton;
+
+    @FXML
+    private Button updateButton;
+
+    @FXML
+    private Button deleteButton;
+
+    String title, author, publisher, pubdate, genre;
+    int ISBN, edition;
+
+    String[] movieGenres = {"Action", "Adventure", "Comedy", "Crime", "Drama", "Fantasy", "Historical", "Horror", "Mystery", "Romance", "Science Fiction", "Thriller"};
+    private ObservableList<Book> listM = null;
 
     public void initialize(URL url, ResourceBundle rb) {
 
-        col_ISBN.setCellValueFactory(new PropertyValueFactory<Book, Integer>("ISBN"));
-        col_title.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
-        col_author.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
-        col_publisher.setCellValueFactory(new PropertyValueFactory<Book, String>("publisher"));
-        col_edition.setCellValueFactory(new PropertyValueFactory<Book, Integer>("edition"));
-        col_pubdate.setCellValueFactory(new PropertyValueFactory<Book, String>("pubdate"));
-        col_genre1.setCellValueFactory(new PropertyValueFactory<Book, String>("genre1"));
+
+        col_ISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
+        col_title.setCellValueFactory(new PropertyValueFactory<>("title"));
+        col_author.setCellValueFactory(new PropertyValueFactory<>("author"));
+        col_publisher.setCellValueFactory(new PropertyValueFactory<>("publisher"));
+        col_edition.setCellValueFactory(new PropertyValueFactory<>("edition"));
+        col_pubdate.setCellValueFactory(new PropertyValueFactory<>("pubdate"));
+        col_genre1.setCellValueFactory(new PropertyValueFactory<>("genre1"));
+
         listM = Book.getDataBooks();
-        System.out.println(listM.toString());
         tableBooks.setItems(listM);
-        /***************************************************************************************************************
-         please replace the "Book.getDataBooks()" method with the appropriate one.
-         For reference, the getDataBooks() method in the old application had the following code in it:
-
-         public static ObservableList<Book> getDataBooks(){
-            Connection conn = mysqlconnect.Connectdb();
-            ObservableList<Book> list = FXCollections.observableArrayList();
-                try{
-                    PreparedStatement pst = conn.prepareStatement("select * from book");
-                    ResultSet rs = pst.executeQuery();
-                    while(rs.next()){
-                        list.add(new Book(rs.getInt("ISBN"),rs.getString("title"),
-                        rs.getString("author"),rs.getString("publisher"),
-                        rs.getInt("edition"), rs.getString("pubdate"),rs.getString("genre1") ));
-                    }
-                } catch (Exception  e) {
-                }
-            return list;
-         }
-         **************************************************************************************************************/
-
 
     }
+    void setVariables(){
+        this.author = AuthorTF.getText();
+        this.edition = Integer.parseInt(editionTF.getText());
+        this.genre = genreTF.getText();
+        this.ISBN = Integer.parseInt(ISBNTF.getText());
+        this.publisher = publisherTF.getText();
+        this.pubdate = pubDateTF.getText();
+        this.title = titleTF.getText();
+    }
+
+    @FXML
+    void add(ActionEvent event) throws SQLException {
+
+        setVariables();
+        add_book( ISBN, title,  author,
+                publisher,edition ,  pubdate, genre);
+    }
+
+    @FXML
+    void delete(ActionEvent event) throws SQLException {
+        this.ISBN = Integer.parseInt(ISBNTF.getText());
+
+        delete_book( ISBN);
+
+    }
+
+    @FXML
+    void update(ActionEvent event) throws SQLException {
+
+        setVariables();
+        update_book( ISBN, title,  author,
+                publisher,edition ,  pubdate, genre);
+    }
+
 }
