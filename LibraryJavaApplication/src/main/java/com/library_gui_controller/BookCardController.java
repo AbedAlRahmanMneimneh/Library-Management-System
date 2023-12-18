@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.File;
 
-public class bookCardController {
+public class BookCardController {
 
     @FXML
     private Label authors;
@@ -30,20 +30,20 @@ public class bookCardController {
     @FXML
     private Label title;
 
-    private static bookCardController instance;
+    private static BookCardController instance;
 
-    public bookCardController(){
+    public BookCardController(){
         instance = this;
     }
 
-    public static bookCardController getInstance(){
+    public static BookCardController getInstance(){
         return instance;
     }
 
     @FXML
     void goToBookInfo(){
         FXMLLoader fl = UserMainViewController.getInstance().goToBookInfo();
-        bookInfoController sampleinfoController = fl.getController();
+        BookInfoController sampleinfoController = fl.getController();
         sampleinfoController.setData(book);
     }
 

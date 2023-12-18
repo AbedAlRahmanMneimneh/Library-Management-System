@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.logController">
+<VBox style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.library_gui_controller.LoginController">
    <children>
       <HBox alignment="CENTER" prefWidth="826.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #464D73; -fx-border-width: 3; -fx-border-color: #464D73;" VBox.vgrow="ALWAYS">
          <children>

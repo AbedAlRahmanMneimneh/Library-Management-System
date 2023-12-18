@@ -107,7 +107,7 @@ public class UserMainViewController implements Initializable {
     void openUser(ActionEvent event) {
         FXMLLoader fl = new FXMLLoader();
         fl.setLocation(getClass().getResource("login-signup.fxml"));
-        logController lc = fl.getController();
+        LoginController lc = fl.getController();
 
         //send him to login scene.
         try {
