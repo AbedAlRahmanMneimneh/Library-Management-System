@@ -101,7 +101,7 @@
                               <Font name="Georgia" size="14.0" />
                            </font>
                         </TextField>
-                        <Button fx:id="ReserveButton" mnemonicParsing="false" onAction="#reserveStuyRoom" style="-fx-background-color: #464d73; -fx-background-radius: 20;" text="Reserve Study Room " textFill="#e1e1e1">
+                        <Button fx:id="ReserveButton" mnemonicParsing="false" onAction="#reserveStudyRoom" style="-fx-background-color: #464d73; -fx-background-radius: 20;" text="Reserve Study Room " textFill="#e1e1e1">
                            <font>
                               <Font name="Georgia" size="14.0" />
                            </font>

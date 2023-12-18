@@ -32,7 +32,7 @@ public class adminPage implements Initializable {
     private VBox vbm;
 
     @FXML
-    void reserveStuyRoom(ActionEvent event) {
+    void reserveStudyRoom(ActionEvent event) {
 
     }
 

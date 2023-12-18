@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="692.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TabPane layoutX="6.0" layoutY="7.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="378.0" prefWidth="584.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="14.600000000000023" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="7.0">
+            <tabs>
+                <Tab fx:id="tabText" style="-fx-background-color: #6b5b48;">
+                    <content>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="350.0" prefWidth="584.0" AnchorPane.bottomAnchor="-0.7999999999999545" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn fx:id="col_ISBN" prefWidth="75.0" text="ISBN" />
+                                        <TableColumn fx:id="col_title" prefWidth="75.0" text="Title" />
+                                        <TableColumn fx:id="col_author" prefWidth="75.0" text="Author" />
+                                        <TableColumn fx:id="col_publisher" prefWidth="75.0" text="Publisher" />
+                                        <TableColumn fx:id="col_edition" prefWidth="75.0" text="Edition" />
+                                        <TableColumn fx:id="col_pubdate" prefWidth="75.0" text="Publication Date" />
+                                        <TableColumn fx:id="col_genre1" prefWidth="75.0" text="Genre 1" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                    <graphic>
+                        <Label prefHeight="17.0" prefWidth="33.0" text="Home" textFill="WHITE" />
+                    </graphic>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
