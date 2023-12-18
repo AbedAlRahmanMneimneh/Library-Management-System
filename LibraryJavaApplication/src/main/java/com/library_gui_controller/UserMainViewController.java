@@ -124,6 +124,9 @@ public class UserMainViewController implements Initializable {
                 fl.setLocation(getClass().getResource("overview.fxml"));
                 VBox vb = fl.load();
                 scene.getChildren().setAll(vb);
+
+                //usernameLabel te3 el usermainview byes7ab el name te3 el logController
+                userNameLabel.setText(lc.name);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

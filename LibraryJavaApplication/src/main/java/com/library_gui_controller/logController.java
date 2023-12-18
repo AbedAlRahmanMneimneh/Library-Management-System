@@ -46,6 +46,7 @@ public class logController {
 
     boolean loginMatch=false;
     boolean signupMatch=false;
+    String name="";
 
     public boolean isLoggedin() {
         return loggedin;
@@ -60,6 +61,7 @@ public class logController {
         if(loginMatch){WrongCredentials.setVisible(true);}
         else{
             //ktob el methods la tshayik mn el database hon.
+            name=un;
             loggedin=true;
             if(loggedin)UserMainViewController.getInstance().goToOverview(event);
         }
@@ -77,6 +79,7 @@ public class logController {
         if(!emConfirm.equals(em)){emailNoMatch.setVisible(true);signupMatch=false;}else{signupMatch=true;}
         if(signupMatch){
             //ktob el methods la tshayik mn el database hon.
+            name=un;
             loggedin=true;
         }
     }
