@@ -135,7 +135,14 @@ public class UserMainViewController implements Initializable {
 
     @FXML
     void searchBook(ActionEvent event) {
-
+        try {
+            FXMLLoader fl = new FXMLLoader();
+            fl.setLocation(getClass().getResource("search.fxml"));
+            VBox vb = fl.load();
+            scene.getChildren().setAll(vb);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
