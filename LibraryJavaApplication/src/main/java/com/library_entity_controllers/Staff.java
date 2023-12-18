@@ -8,9 +8,11 @@ import static com.library_database_controller.Library_Staff_User_Controller.staf
 
 public class Staff {
 
-    static Staff staff = null;
+    public static Staff staff = null;
     private int staffId;
-    private String firstName, lastName;
+    private String firstName;
+    private String lastName;
+    private String fullName;
     private int phoneNumber, landLine;
     private String email;
     private GENDER gender;
@@ -35,6 +37,8 @@ public class Staff {
     public Staff() {
 
     }
+    public String getFullName() {return fullName;}
+    public void setFullName(String fullName) {this.fullName = fullName;}
 
     public int getStaffId() {
         return staffId;
@@ -116,9 +120,9 @@ public class Staff {
 
     public void setPassword(String password) {this.password = password;}
 
-    static boolean validateStaffAccount(String username, String password) throws SQLException {
+    public static boolean validateStaffAccount(String username, String password) throws SQLException {
 
-        String sqlselect = "SELECT * from staff WHERE username = '" + username + "'";
+        String sqlselect = "SELECT *, CONCAT(firstName, ' ', lastName) as fullName from staff WHERE username = '" + username + "'";
 
         ResultSet rs = staffstatement().executeQuery(sqlselect);
         rs.next();
@@ -129,6 +133,7 @@ public class Staff {
             int staffId = rs.getInt("staffId");
             String firstName = rs.getString("firstName");
             String lastName = rs.getString("lastName");
+            String fullName = rs.getString("fullName");
             int phoneNumber = rs.getInt("phoneNumber");
             int landLine = rs.getInt("landLine");
             String email = rs.getString("email");
@@ -145,6 +150,7 @@ public class Staff {
             staff.setEmail(email);
             staff.setDateOfBirth(dateOfBirth);
             staff.setPrivLevel(privLevel);
+            staff.setFullName(fullName);
 
         }
         return login;

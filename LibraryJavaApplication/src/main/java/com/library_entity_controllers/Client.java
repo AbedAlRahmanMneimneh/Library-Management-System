@@ -8,13 +8,16 @@ import static com.library_database_controller.Library_Client_User_Connector.clie
 import static com.library_database_controller.Library_Staff_User_Controller.staffstatement;
 
 public class Client {
-    static Client client= null;
+    public static Client client= null;
     private int clientId;
     private String firstName;
     private String lastName;
     private String fullName;
     private int phoneNumber, landLine;
-    private String email, dateOfBirth;
+    private String email;
+
+    private GENDER gender;
+    private String dateOfBirth;
     private String username, password;
     public Client(int userId, String firstName, String lastName, int phoneNo, int landLine, String email, String dateOfBirth) {
         this.clientId = userId;
@@ -112,7 +115,9 @@ public class Client {
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-    static boolean validateClientAccount(String email, String password) throws SQLException {
+    public GENDER getGender() {return gender;}
+    public void setGender(GENDER gender) {this.gender = gender;}
+    public static boolean validateClientAccount(String email, String password) throws SQLException {
 
         String sqlselect = "SELECT *, CONCAT(firstName, ' ', lastName) as fullName from user WHERE email = '" + email + "'";
 
@@ -129,7 +134,7 @@ public class Client {
             String fullName = rs.getString("fullName");
             int phoneNumber = rs.getInt("phoneNumber");
             int landLine = rs.getInt("landLine");
-
+            String gender = rs.getString("gender");
             String dateOfBirth = rs.getString("dateOfBirth");
             client = new Client();
             client.setClientId(clientId);
@@ -141,6 +146,7 @@ public class Client {
             client.setEmail(email);
             client.setDateOfBirth(dateOfBirth);
             client.setFullName(fullName);
+            client.setGender(GENDER.valueOf(gender));
 
         }
         return login;

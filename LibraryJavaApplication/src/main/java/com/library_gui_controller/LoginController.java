@@ -1,9 +1,17 @@
 package com.library_gui_controller;
 
-
+import com.library_entity_controllers.Client;
+import com.library_entity_controllers.Client.*;
+import com.library_entity_controllers.Staff;
+import com.library_entity_controllers.Staff.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+
+import java.sql.SQLException;
+
+import static com.library_entity_controllers.Client.validateClientAccount;
+import static com.library_entity_controllers.Staff.validateStaffAccount;
 
 public class LoginController {
 
@@ -77,11 +85,23 @@ public class LoginController {
     boolean loggedin = false;
 
     @FXML
-    void login(ActionEvent event) {
+    void login(ActionEvent event) throws SQLException {
         // to get the text from a textfield use example.getText
         String un = usernameLogin.getText();
         String pw = passLogin.getText();
-        if (loginMatch) {
+        if(isStaff){
+            loginMatch = validateStaffAccount(un,pw);
+            if (!loginMatch) {
+                WrongCredentials.setVisible(true);
+            } else {
+                //ktob el methods la tshayik mn el database hon.
+                name = Staff.staff.getFullName();
+                loggedin = true;
+                if (loggedin) UserMainViewController.getInstance().goToOverview(event);
+            }
+        }
+        loginMatch = validateClientAccount(un,  pw);
+        if (!loginMatch) {
             WrongCredentials.setVisible(true);
         } else {
             //ktob el methods la tshayik mn el database hon.
@@ -113,7 +133,7 @@ public class LoginController {
 
         if (signupMatch) {
             //ktob el methods la tshayik mn el database hon.
-            name = un;
+            name =un;
             loggedin = true;
         }
     }
