@@ -1,16 +1,23 @@
 package com.Email;
+import com.library_entity_controllers.Book;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
-import javax.activation.*;
 import javax.mail.Session;
 import javax.mail.Transport;
+
+import static com.library_database_controller.Library_Staff_User_Controller.staffconnection;
 
 
 public class Mail {
     private String emailFrom = "apolloscriptlibrary@gmail.com";
     private String appPassword = "tdluxehshmqybktc";
-    public  void sendmail(String emailTo, String Subject, String Contents) throws MessagingException {
+    public static void sendMail(String emailTo, String Subject, String Contents) throws MessagingException {
         Session session = createSessionAuth();
         Message message = new MimeMessage(session);
         message.setFrom(new InternetAddress(emailFrom));
@@ -46,5 +53,22 @@ public class Mail {
             }
         });
         return session;
+    }
+
+    public static ObservableList<Book> getStaffDataBookCopies(){
+
+        ObservableList<Book> list = FXCollections.observableArrayList();
+        String sqlSelect = "Select copyNo,ISBN,title,FullName from staff_book_bookcopy_author ";
+        try{
+            PreparedStatement pst = staffconnection().prepareStatement(sqlSelect);
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+                list.add(new Book(rs.getInt("CopyNumber"),rs.getInt("ISBN"),
+                        rs.getString("title"),rs.getString("FullName")));
+            }
+        } catch (Exception  e) {
+
+        }
+        return list;
     }
 }

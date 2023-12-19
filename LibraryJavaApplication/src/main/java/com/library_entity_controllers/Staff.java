@@ -1,9 +1,17 @@
 package com.library_entity_controllers;
 
+import com.Email.Mail;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import javax.mail.MessagingException;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
 
+import static com.Email.Mail.sendMail;
+import static com.library_database_controller.Library_Staff_User_Controller.staffconnection;
 import static com.library_database_controller.Library_Staff_User_Controller.staffstatement;
 
 public class Staff {
@@ -159,4 +167,28 @@ public class Staff {
     public void staffLogout(){
         staff = null;
     }
+
+    public void sendMailForAllCustomersDue() throws MessagingException {
+        ObservableList<RentDue> list = FXCollections.observableArrayList();
+        String sqlSelect = "Select * from libappschem.currently_in_rent_user_copynumber ";
+        try{
+            PreparedStatement pst = staffconnection().prepareStatement(sqlSelect);
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+                list.add(new RentDue(rs.getString("email"),rs.getInt("userId"),
+                        rs.getInt("ISBN"),rs.getString("title"), rs.getInt("copyNumber"),rs.getString("rentDate")));
+            }
+        } catch (Exception  e) {
+
+        }
+        for(RentDue rentDue : list ){
+            String subject = "Rent is Due!";
+            String emailTo = rentDue.getEmail();
+            String contents= "The book you (UserId: "+rentDue.getUserId()+") rented on: "+ rentDue.getRentDate()  +" of Copy Number :" + rentDue.getCopyNumber() + " and ISBN:  "
+                    + rentDue.getISBN() + " is due and you should return it as soon as possible \n Thank you,\n Apollo"  ;
+            sendMail(emailTo,subject,contents);
+
+    }
+
+}
 }
