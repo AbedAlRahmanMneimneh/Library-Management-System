@@ -74,4 +74,8 @@ public class RentDue {
         String sqlInsert = "Insert Into libappschem.transacts values("+bookCopy+","+userId+", curdate(),'Rent'";
         staffstatement().executeUpdate(sqlInsert);
     }
+    public void returnBook(int bookCopy,int userId ) throws SQLException {
+        String sqlInsert = "Insert Into libappschem.transacts values("+bookCopy+","+userId+", curdate(),'Return'";
+        staffstatement().executeUpdate(sqlInsert);
+    }
 }
