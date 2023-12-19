@@ -16,7 +16,7 @@ public class Client {
     private int phoneNumber, landLine;
     private String email;
 
-    private GENDER gender;
+    private String gender;
     private String dateOfBirth;
     private String username, password;
     public Client(int userId, String firstName, String lastName, int phoneNo, int landLine, String email, String dateOfBirth) {
@@ -115,8 +115,8 @@ public class Client {
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-    public GENDER getGender() {return gender;}
-    public void setGender(GENDER gender) {this.gender = gender;}
+    public String getGender() {return gender;}
+    public void setGender(String gender) {this.gender = gender;}
     public static boolean validateClientAccount(String username1, String password) throws SQLException {
 
         String sqlselect = "SELECT *, CONCAT(firstName, ' ', lastName) as fullName from user WHERE username = '" + username1 + "'";
@@ -146,7 +146,7 @@ public class Client {
             client.setEmail(email);
             client.setDateOfBirth(dateOfBirth);
             client.setFullName(fullName);
-            client.setGender(GENDER.valueOf(gender));
+            client.setGender(gender);
 
         }
         return login;
@@ -155,7 +155,7 @@ public class Client {
     public void clientLogout(){
         client = null;
     }
-    public void signUp(String username, String password,String firstName, String lastName,int phoneNumber,int landline, String email, GENDER gender, String dateOfBirth) throws SQLException {
+    public void signUp(String username, String password,String firstName, String lastName,int phoneNumber,int landline, String email, String gender, String dateOfBirth) throws SQLException {
 
         String sqlInsert = "insert into libappschem.user values" + " ('" + firstName + "'," + "'" + lastName + "'," + "'" + phoneNumber + "'," + "'" + landline + "'," + gender.toString() + "STR_TO_DATE(\"" + dateOfBirth + "\", \"%m-%d-%Y\")" + "," + ")";
         clientstatement().executeUpdate(sqlInsert);

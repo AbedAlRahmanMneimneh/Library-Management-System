@@ -2,7 +2,7 @@ package com.library_gui_controller;
 
 import com.library_entity_controllers.Client;
 import com.library_entity_controllers.Client.*;
-import com.library_entity_controllers.GENDER;
+
 import com.library_entity_controllers.Staff;
 import com.library_entity_controllers.Staff.*;
 import javafx.event.ActionEvent;
@@ -18,7 +18,7 @@ import static com.library_entity_controllers.Staff.validateStaffAccount;
 
 public class LoginController {
 
-//    private static  com.library_entity_controllers.GENDER GENDER = ;
+
     @FXML
     private Label WrongCredentials;
 
@@ -148,7 +148,7 @@ public class LoginController {
         }
 
         if (signupMatch) {
-            Client.client.signUp(un,pw, firstname.getText(), lastname.getText(), Integer.parseInt(phone.getText()), Integer.parseInt(landline.getText()), em, (gender.getText().toUpperCase().charAt(0)=='M'?GENDER.MALE: GENDER.FEMALE),dob.getValue().toString() );
+            Client.client.signUp(un,pw, firstname.getText(), lastname.getText(), Integer.parseInt(phone.getText()), Integer.parseInt(landline.getText()), em, gender.getText(),dob.getValue().toString() );
             name =un;
             loggedin = true;
         }
