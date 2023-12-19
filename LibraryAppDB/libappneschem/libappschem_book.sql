@@ -16,31 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `bookcopy`
+-- Table structure for table `book`
 --
 
-DROP TABLE IF EXISTS `bookcopy`;
+DROP TABLE IF EXISTS `book`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `bookcopy` (
-  `copyNo` int NOT NULL,
-  `ISBN` int DEFAULT NULL,
-  `branchId` int DEFAULT NULL,
-  PRIMARY KEY (`copyNo`),
-  KEY `ISBN` (`ISBN`),
-  KEY `foreign_key_name` (`branchId`),
-  CONSTRAINT `foreign_key_name` FOREIGN KEY (`branchId`) REFERENCES `branch` (`branchId`),
-  CONSTRAINT `ISBN` FOREIGN KEY (`ISBN`) REFERENCES `book` (`ISBN`)
+CREATE TABLE `book` (
+  `ISBN` int NOT NULL,
+  `title` varchar(200) NOT NULL,
+  `authorId` int NOT NULL,
+  `edition` int DEFAULT '1',
+  `genre` varchar(50) DEFAULT NULL,
+  `numOfPages` int DEFAULT NULL,
+  `publisher` varchar(200) DEFAULT NULL,
+  `datePublished` date DEFAULT NULL,
+  `bookDescription` varchar(500) DEFAULT NULL,
+  `bookImage` varchar(500) DEFAULT 'srcmain\resourcescomlibrary_gui_controllerimagesNo Cover Cover.jpg',
+  PRIMARY KEY (`ISBN`),
+  KEY `book_author_null_fk` (`authorId`),
+  CONSTRAINT `book_author_null_fk` FOREIGN KEY (`authorId`) REFERENCES `author` (`authorId`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `bookcopy`
+-- Dumping data for table `book`
 --
 
-LOCK TABLES `bookcopy` WRITE;
-/*!40000 ALTER TABLE `bookcopy` DISABLE KEYS */;
-/*!40000 ALTER TABLE `bookcopy` ENABLE KEYS */;
+LOCK TABLES `book` WRITE;
+/*!40000 ALTER TABLE `book` DISABLE KEYS */;
+/*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-19 18:29:34
+-- Dump completed on 2023-12-19 20:08:35

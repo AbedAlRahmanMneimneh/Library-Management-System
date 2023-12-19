@@ -16,36 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `book`
+-- Table structure for table `makereservation`
 --
 
-DROP TABLE IF EXISTS `book`;
+DROP TABLE IF EXISTS `makereservation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `book` (
-  `ISBN` int NOT NULL,
-  `title` varchar(200) NOT NULL,
-  `authorId` int NOT NULL,
-  `edition` int DEFAULT '1',
-  `genre` varchar(50) DEFAULT NULL,
-  `numOfPages` int DEFAULT NULL,
-  `publisher` varchar(200) DEFAULT NULL,
-  `datePublished` date DEFAULT NULL,
-  `bookDescription` varchar(500) DEFAULT NULL,
-  `bookImage` varchar(500) DEFAULT 'srcmain\resourcescomlibrary_gui_controllerimagesNo Cover Cover.jpg',
-  PRIMARY KEY (`ISBN`),
-  KEY `book_author_null_fk` (`authorId`),
-  CONSTRAINT `book_author_null_fk` FOREIGN KEY (`authorId`) REFERENCES `author` (`authorId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `makereservation` (
+  `reservationId` int NOT NULL AUTO_INCREMENT,
+  `studyRoomId` int NOT NULL,
+  `userId` int NOT NULL,
+  `reservationDateTime` datetime NOT NULL,
+  `reservationEndDateTime` datetime NOT NULL,
+  PRIMARY KEY (`reservationId`),
+  UNIQUE KEY `makereservation_pk` (`reservationDateTime`),
+  KEY `MakeReservation_studyroom_null_fk` (`studyRoomId`),
+  KEY `MakeReservation_user_null_fk` (`userId`),
+  CONSTRAINT `MakeReservation_studyroom_null_fk` FOREIGN KEY (`studyRoomId`) REFERENCES `studyroom` (`studyRoomId`),
+  CONSTRAINT `MakeReservation_user_null_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `book`
+-- Dumping data for table `makereservation`
 --
 
-LOCK TABLES `book` WRITE;
-/*!40000 ALTER TABLE `book` DISABLE KEYS */;
-/*!40000 ALTER TABLE `book` ENABLE KEYS */;
+LOCK TABLES `makereservation` WRITE;
+/*!40000 ALTER TABLE `makereservation` DISABLE KEYS */;
+INSERT INTO `makereservation` VALUES (1,1,2,'2023-12-22 15:48:53','2023-12-22 19:00:00');
+/*!40000 ALTER TABLE `makereservation` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -57,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-19 18:29:34
+-- Dump completed on 2023-12-19 20:08:35

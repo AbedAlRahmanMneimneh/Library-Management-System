@@ -74,7 +74,6 @@ public class adminPage implements Initializable {
     String title, author, publisher, pubdate, genre;
     int ISBN, edition;
 
-    String[] movieGenres = {"Action", "Adventure", "Comedy", "Crime", "Drama", "Fantasy", "Historical", "Horror", "Mystery", "Romance", "Science Fiction", "Thriller"};
     private ObservableList<Book> listM = null;
 
     public void initialize(URL url, ResourceBundle rb) {

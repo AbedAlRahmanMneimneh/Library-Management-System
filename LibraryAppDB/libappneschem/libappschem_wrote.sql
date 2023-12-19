@@ -16,37 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `staff`
+-- Table structure for table `wrote`
 --
 
-DROP TABLE IF EXISTS `staff`;
+DROP TABLE IF EXISTS `wrote`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `staff` (
-  `staffId` int NOT NULL AUTO_INCREMENT,
-  `firstName` varchar(30) NOT NULL,
-  `lastName` varchar(30) NOT NULL,
-  `phoneNumber` decimal(8,0) NOT NULL,
-  `landLine` decimal(8,0) NOT NULL,
-  `email` varchar(300) NOT NULL,
-  `gender` enum('Male','Female') NOT NULL,
-  `dateOfBirth` date NOT NULL,
-  `privLevel` enum('1','2') NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `password` varchar(150) NOT NULL,
-  PRIMARY KEY (`staffId`),
-  UNIQUE KEY `phoneNumber` (`phoneNumber`),
-  UNIQUE KEY `staff_username` (`username`)
+CREATE TABLE `wrote` (
+  `ISBN` int DEFAULT NULL,
+  `authorId` int DEFAULT NULL,
+  KEY `author` (`authorId`),
+  KEY `ISBNo1` (`ISBN`),
+  CONSTRAINT `author` FOREIGN KEY (`authorId`) REFERENCES `author` (`authorId`),
+  CONSTRAINT `ISBNo1` FOREIGN KEY (`ISBN`) REFERENCES `book` (`ISBN`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `staff`
+-- Dumping data for table `wrote`
 --
 
-LOCK TABLES `staff` WRITE;
-/*!40000 ALTER TABLE `staff` DISABLE KEYS */;
-/*!40000 ALTER TABLE `staff` ENABLE KEYS */;
+LOCK TABLES `wrote` WRITE;
+/*!40000 ALTER TABLE `wrote` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wrote` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -58,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-19 18:29:34
+-- Dump completed on 2023-12-19 20:08:35

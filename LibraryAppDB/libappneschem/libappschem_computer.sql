@@ -16,29 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `branch`
+-- Table structure for table `computer`
 --
 
-DROP TABLE IF EXISTS `branch`;
+DROP TABLE IF EXISTS `computer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `branch` (
-  `branchId` int NOT NULL,
-  `city` varchar(80) DEFAULT NULL,
-  `street` varchar(200) DEFAULT NULL,
-  `phoneNo` decimal(8,0) DEFAULT NULL,
-  PRIMARY KEY (`branchId`)
+CREATE TABLE `computer` (
+  `computerId` int NOT NULL AUTO_INCREMENT,
+  `brand` varchar(30) NOT NULL,
+  `processor` varchar(50) NOT NULL,
+  `graphicsCard` varchar(30) DEFAULT NULL,
+  `available` tinyint(1) NOT NULL,
+  `branchid` int NOT NULL,
+  PRIMARY KEY (`computerId`),
+  KEY `branchId` (`branchid`),
+  CONSTRAINT `branchId` FOREIGN KEY (`branchid`) REFERENCES `branch` (`branchId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `branch`
+-- Dumping data for table `computer`
 --
 
-LOCK TABLES `branch` WRITE;
-/*!40000 ALTER TABLE `branch` DISABLE KEYS */;
-INSERT INTO `branch` VALUES (1,'Beirut','Hamra',1652155);
-/*!40000 ALTER TABLE `branch` ENABLE KEYS */;
+LOCK TABLES `computer` WRITE;
+/*!40000 ALTER TABLE `computer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `computer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-19 18:29:33
+-- Dump completed on 2023-12-19 20:08:35
