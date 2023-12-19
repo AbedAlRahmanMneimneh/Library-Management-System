@@ -1,5 +1,9 @@
 package com.library_entity_controllers;
 
+import java.sql.SQLException;
+
+import static com.library_database_controller.Library_Staff_User_Controller.staffstatement;
+
 public class RentDue {
 
     public String email;
@@ -64,5 +68,10 @@ public class RentDue {
 
     public void setRentDate(String rentDate) {
         this.rentDate = rentDate;
+    }
+
+    public void rentBook(int bookCopy,int userId ) throws SQLException {
+        String sqlInsert = "Insert Into libappschem.transacts values("+bookCopy+","+userId+", curdate(),'Rent'";
+        staffstatement().executeUpdate(sqlInsert);
     }
 }

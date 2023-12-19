@@ -87,7 +87,7 @@ public class adminPage implements Initializable {
         col_pubdate.setCellValueFactory(new PropertyValueFactory<>("pubdate"));
         col_genre1.setCellValueFactory(new PropertyValueFactory<>("genre1"));
 
-        listM = Book.getDataBooks();
+      //  listM = Book.getDataBooks();
         tableBooks.setItems(listM);
 
     }
@@ -105,24 +105,24 @@ public class adminPage implements Initializable {
     void add(ActionEvent event) throws SQLException {
 
         setVariables();
-        add_book( ISBN, title,  author,
-                publisher,edition ,  pubdate, genre);
+       // add_book( ISBN, title,  author,
+       //         publisher,edition ,  pubdate, genre);
     }
 
     @FXML
     void delete(ActionEvent event) throws SQLException {
-        this.ISBN = Integer.parseInt(ISBNTF.getText());
+    //    this.ISBN = Integer.parseInt(ISBNTF.getText());
 
-        delete_book( ISBN);
+    //    delete_book( ISBN);
 
     }
 
     @FXML
     void update(ActionEvent event) throws SQLException {
 
-        setVariables();
-        update_book( ISBN, title,  author,
-                publisher,edition ,  pubdate, genre);
+    //    setVariables();
+      //  update_book( ISBN, title,  author,
+           //     publisher,edition ,  pubdate, genre);
     }
 
 }
