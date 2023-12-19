@@ -18,7 +18,7 @@
    <children>
       <HBox alignment="CENTER" prefWidth="826.0" style="-fx-border-radius: 20; -fx-background-color: #464D73; -fx-border-width: 3; -fx-border-color: #464D73;" VBox.vgrow="ALWAYS">
          <children>
-            <VBox alignment="CENTER" prefWidth="400.0" spacing="10.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #e1e1e1;" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" prefWidth="400.0" spacing="10.0" style="-fx-background-radius: 0 20 20 0; -fx-border-radius: 20; -fx-background-color: #e1e1e1;" HBox.hgrow="ALWAYS">
                <effect>
                   <InnerShadow blurType="GAUSSIAN" choke="0.2" height="40.0" offsetX="5.0" radius="19.5" width="40.0">
                      <color>
