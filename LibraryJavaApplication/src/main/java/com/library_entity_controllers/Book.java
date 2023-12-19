@@ -260,12 +260,7 @@ public class Book {
                 + "'"+ numOfPages+"'," +"datePublished ="+"STR_TO_DATE(\"" + datePublished + "\", \"%d-%m-%Y\")" +"genre = " + "'"+ genre+"', bookDescription='"+bookDescription+"' WHERE ISBN = '"+ISBN+"'";
         staffstatement().executeUpdate(sqlUpdate);
     }
-    public void deleteBook(int ISBN) throws SQLException {
-        String sqlDelete ="DELETE FROM libappschem.bookcopy WHERE ISBN ="  +ISBN;
-        staffstatement().executeUpdate(sqlDelete);
-        sqlDelete ="DELETE FROM libappschem.book WHERE ISBN ="  +ISBN;
-        staffstatement().executeUpdate(sqlDelete);
-    }
+
     public void deleteBookCopy(int number) throws SQLException {
         String sqlDelete ="DELETE FROM libappschem.book WHERE copyNo ="  +number;
         staffstatement().executeUpdate(sqlDelete);

@@ -16,35 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `makereservation`
+-- Table structure for table `transacts`
 --
 
-DROP TABLE IF EXISTS `makereservation`;
+DROP TABLE IF EXISTS `transacts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `makereservation` (
-  `reservationId` int NOT NULL AUTO_INCREMENT,
-  `studyRoomId` int NOT NULL,
+CREATE TABLE `transacts` (
+  `staffId` int NOT NULL,
   `userId` int NOT NULL,
-  `reservationDateTime` datetime NOT NULL,
-  `reservationEndDateTime` datetime NOT NULL,
-  PRIMARY KEY (`reservationId`),
-  UNIQUE KEY `makereservation_pk` (`reservationDateTime`),
-  KEY `MakeReservation_studyroom_null_fk` (`studyRoomId`),
-  KEY `MakeReservation_user_null_fk` (`userId`),
-  CONSTRAINT `MakeReservation_studyroom_null_fk` FOREIGN KEY (`studyRoomId`) REFERENCES `studyroom` (`studyRoomId`),
-  CONSTRAINT `MakeReservation_user_null_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `copyNumber` int DEFAULT NULL,
+  `transactionDate` date DEFAULT (curdate()),
+  `transactionType` enum('Rent','Return') NOT NULL,
+  KEY `Transacts_staff_null_fk` (`staffId`),
+  KEY `Transacts_user_null_fk` (`userId`),
+  KEY `bookcoppy` (`copyNumber`),
+  CONSTRAINT `bookcoppy` FOREIGN KEY (`copyNumber`) REFERENCES `bookcopy` (`copyNo`) ON DELETE CASCADE,
+  CONSTRAINT `Transacts_staff_null_fk` FOREIGN KEY (`staffId`) REFERENCES `staff` (`staffId`),
+  CONSTRAINT `Transacts_user_null_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `makereservation`
+-- Dumping data for table `transacts`
 --
 
-LOCK TABLES `makereservation` WRITE;
-/*!40000 ALTER TABLE `makereservation` DISABLE KEYS */;
-INSERT INTO `makereservation` VALUES (1,1,2,'2023-12-22 15:48:53','2023-12-22 19:00:00');
-/*!40000 ALTER TABLE `makereservation` ENABLE KEYS */;
+LOCK TABLES `transacts` WRITE;
+/*!40000 ALTER TABLE `transacts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transacts` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-19 18:29:33
+-- Dump completed on 2023-12-19 20:08:35
