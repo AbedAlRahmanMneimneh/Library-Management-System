@@ -204,35 +204,7 @@ public class Book {
         this.title = title;
     }
 
-    public static String copyImageToProject() throws IOException, IncorrectFileTypeException {
-        File f = new File(openFileDialogue().toURI());
-        String mimetype = new MimetypesFileTypeMap().getContentType(f);
-        String type = mimetype.split("/")[0];
-        if (type.equals("image")) {
-            try{
-               new File("src/main/resources/com/library_gui_controller/images/" + f.getName()).delete();
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
 
-            FileInputStream in = new FileInputStream(f);
-            FileOutputStream out = new FileOutputStream("C:\\Users\\user\\Mahmoud\\GitHub Repos\\DBS_Project\\Library-Management-System\\LibraryJavaApplication\\src\\main\\resources\\com\\library_gui_controller\\images\\" + f.getName());
-            BufferedInputStream bin = new BufferedInputStream(in);
-            BufferedOutputStream bout = new BufferedOutputStream(out);
-            int b = 0;
-            while (b != -1) {
-                b = bin.read();
-                bout.write(b);
-            }
-            bin.close();
-            bout.close();
-        } else {
-            throw new IncorrectFileTypeException("The File is not an image");
-        }
-
-        return f.getName();
-    }
 
     public static ObservableList<Book> getStaffDataBookCopies(){
 
@@ -269,7 +241,10 @@ public class Book {
         return list;
     }
     public void addBook(int ISBN, String title, int authorId, int edition, String genre, int numOfPages,String publisher, String datePublished, String bookDescription, String fileName) throws SQLException {
-        String sqlInsert = "insert into libappschem.book values" + " ('" + ISBN + "'," + "'" + title + "'," + "'" + authorId + "'," + "'" + edition + "','" + genre +"','"+numOfPages+"',"+"'"+publisher+"',"+ "STR_TO_DATE(\"" + datePublished + "\", \"%m-%d-%Y\")" +",'"+bookDescription+"','"+"src/main/resources/com/library_gui_controller/images/"+fileName +"')";
+        String sqlInsert = "insert into libappschem.book values" + " ('" + ISBN + "'," + "'" + title + "',"
+                + "'" + authorId + "'," + "'" + edition + "','" + genre +"','"+numOfPages+"',"+"'"+publisher+"',"
+                + "STR_TO_DATE(\"" + datePublished + "\", \"%m-%d-%Y\")" +",'"+bookDescription+"','"
+                +"src/main/resources/com/library_gui_controller/images/"+fileName +"')";
         staffstatement().executeUpdate(sqlInsert);
 
     }
@@ -284,6 +259,16 @@ public class Book {
                 +"publisher = " + "'"+ publisher+"',"+"edition = " + "'"+ edition+"',"+"numOfPages = "
                 + "'"+ numOfPages+"'," +"datePublished ="+"STR_TO_DATE(\"" + datePublished + "\", \"%d-%m-%Y\")" +"genre = " + "'"+ genre+"', bookDescription='"+bookDescription+"' WHERE ISBN = '"+ISBN+"'";
         staffstatement().executeUpdate(sqlUpdate);
+    }
+    public void deleteBook(int ISBN) throws SQLException {
+        String sqlDelete ="DELETE FROM libappschem.bookcopy WHERE ISBN ="  +ISBN;
+        staffstatement().executeUpdate(sqlDelete);
+        sqlDelete ="DELETE FROM libappschem.book WHERE ISBN ="  +ISBN;
+        staffstatement().executeUpdate(sqlDelete);
+    }
+    public void deleteBookCopy(int number) throws SQLException {
+        String sqlDelete ="DELETE FROM libappschem.book WHERE copyNo ="  +number;
+        staffstatement().executeUpdate(sqlDelete);
     }
 
 
