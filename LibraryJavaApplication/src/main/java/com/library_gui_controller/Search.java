@@ -28,7 +28,7 @@ public class Search implements Initializable {
         //change in this method to make it so that you add the books to the list in this way(b.setTitle();b.set....) but retrieve the data from sql
         b = new Book();
         b.setTitle("12 Rules Of Life");
-        b.setAuthor("Jordan Peterson");
+        b.setAuthorFullName("Jordan Peterson");
         b.setGenre("Philosophy");
         b.setBookImage(new File("src/main/resources/com/library_gui_controller/images/12 Rules Of Life.jpeg"));
         b.setBookDescription("In '12 Rules of Life,' Jordan Peterson explores profound principles derived from psychology, philosophy, mythology, and personal anecdotes. Delve into this transformative guide to discover practical wisdom for navigating the complexities of existence.");

@@ -45,7 +45,7 @@ public class BookInfoController {
         File file = b.getBookImage();
         image.setImage( new Image(file.toURI().toString()) );
         title.setText(b.getTitle());
-        author.setText("Author: "+b.getAuthor());
+        author.setText("Author: "+b.getAuthorFullName());
         publisher.setText("Publisher: "+b.getPublisher());
         edition.setText("Edition: "+b.getEdition());
         nbrInStock.setText("Number In Stock: "+b.getNumberInStock());

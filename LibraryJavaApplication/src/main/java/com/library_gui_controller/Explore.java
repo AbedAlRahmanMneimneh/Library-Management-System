@@ -28,7 +28,7 @@ public class Explore implements Initializable {
 
         b = new Book();
         b.setTitle("12 Rules Of Life");
-        b.setAuthor("Jordan Peterson");
+        b.setAuthorFullName("Jordan Peterson");
         b.setGenre("Philosophy");
         b.setBookImage(new File("src/main/resources/com/library_gui_controller/images/12 Rules Of Life.jpeg"));
         b.setBookDescription("In '12 Rules of Life,' Jordan Peterson explores profound principles derived from psychology, philosophy, mythology, and personal anecdotes. Delve into this transformative guide to discover practical wisdom for navigating the complexities of existence.");
@@ -37,7 +37,7 @@ public class Explore implements Initializable {
 
         b = new Book();
         b.setTitle("Effective Java");
-        b.setAuthor("Addison Wesley");
+        b.setAuthorFullName("Addison Wesley");
         b.setGenre("Programming");
         b.setBookImage(new File("src/main/resources/com/library_gui_controller/images/EffectiveJava.png"));
         b.setBookDescription("Written by Joshua Bloch, 'Effective Java' is a comprehensive guide for Java developers seeking to write robust and maintainable code. With practical advice and coding examples, this book is an essential resource for mastering the intricacies of Java programming.");
@@ -46,7 +46,7 @@ public class Explore implements Initializable {
 
         b = new Book();
         b.setTitle("Outlawed");
-        b.setAuthor("Anna North");
+        b.setAuthorFullName("Anna North");
         b.setGenre("Historical Fiction");
         b.setBookImage(new File("src/main/resources/com/library_gui_controller/images/Outlawed.jpeg"));
         b.setBookDescription("Anna North's 'Outlawed' is a gripping historical fiction set in a reimagined American West. Follow the journey of Ada, a young woman who becomes an outlaw to survive, as North weaves a tale of identity, resilience, and the quest for justice.");
@@ -55,7 +55,7 @@ public class Explore implements Initializable {
 
         b = new Book();
         b.setTitle("Mona");
-        b.setAuthor("Pola Oloixarac");
+        b.setAuthorFullName("Pola Oloixarac");
         b.setGenre("Literary Fiction");
         b.setBookImage(new File("src/main/resources/com/library_gui_controller/images/Mona.jpg"));
         b.setBookDescription("Pola Oloixarac's 'Mona' is a literary tour de force that explores the intersection of science, art, and the human experience. With rich prose and complex characters, Oloixarac crafts a narrative that challenges conventions and captivates the reader.");
@@ -64,7 +64,7 @@ public class Explore implements Initializable {
 
         b = new Book();
         b.setTitle("With Teeth");
-        b.setAuthor("Kristen Arnett");
+        b.setAuthorFullName("Kristen Arnett");
         b.setGenre("Domestic Fiction");
         b.setBookImage(new File("src/main/resources/com/library_gui_controller/images/With Teeth.jpg"));
         b.setBookDescription("Kristen Arnett's 'With Teeth' is a poignant exploration of family dynamics, queerness, and the complexities of motherhood. Through vivid storytelling and authentic characters, Arnett invites readers to reflect on the intricacies of modern family life.");
@@ -73,7 +73,7 @@ public class Explore implements Initializable {
 
         b = new Book();
         b.setTitle("After the Sun");
-        b.setAuthor("Jonas Eika");
+        b.setAuthorFullName("Jonas Eika");
         b.setGenre("Short Stories");
         b.setBookImage(new File("src/main/resources/com/library_gui_controller/images/After The Sun.jpg"));
         b.setBookDescription("Explore the thought-provoking world of Jonas Eika's short stories in 'After the Sun.' With a blend of social commentary and imaginative storytelling, Eika takes readers on a journey through diverse landscapes, offering unique perspectives on the human condition.");

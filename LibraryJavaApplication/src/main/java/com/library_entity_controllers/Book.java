@@ -2,12 +2,18 @@ package com.library_entity_controllers;
 
 import com.library_gui_controller.IncorrectFileTypeException;
 import jakarta.activation.MimetypesFileTypeMap;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
+import static com.library_database_controller.Library_Staff_User_Controller.staffconnection;
 import static com.library_gui_controller.FileDialogueSelect.openFileDialogue;
 
 public class Book {
+    private int copyNumber;
     private Integer ISBN;
     private String title;
     private Integer edition;
@@ -19,9 +25,15 @@ public class Book {
     private Integer available;
     private String bookDescription;
     private File bookImage;
-    private String author;
+    private String authorFullName;
 
+    public Book(int copyNumber, int ISBN, String title, String authorFullName ){
+        this.copyNumber= copyNumber;
+        this.ISBN = ISBN;
+        this.title = title;
+        this.authorFullName = authorFullName;
 
+    }
     public Book(Integer ISBN, String title, Integer edition, String genre, Integer numOfPages, String publisher, String datePublished,
                 Integer numberInStock, Integer available, String bookDescription, File bookImage, String author) {
         this.ISBN = ISBN;
@@ -35,7 +47,7 @@ public class Book {
         this.available = available;
         this.bookDescription = bookDescription;
         this.bookImage = bookImage;
-        this.author = author;
+        this.authorFullName = author;
     }
 
     public Book() {
@@ -53,7 +65,14 @@ public class Book {
         this.available = available;
         this.bookDescription = bookDescription;
         this.bookImage = bookImage;
-        this.author = author;
+        this.authorFullName = author;
+    }
+    public int getCopyNumber() {
+        return copyNumber;
+    }
+
+    public void setCopyNumber(int copyNumber) {
+        this.copyNumber = copyNumber;
     }
 
     public Integer getISBN() {
@@ -149,14 +168,14 @@ public class Book {
 
         this.bookImage = bookImage;
     }
-    public String getAuthor() {
+    public String getAuthorFullName() {
 
-        return author;
+        return authorFullName;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthorFullName(String authorFullName) {
 
-        this.author = author;
+        this.authorFullName = authorFullName;
     }
 
     public String getGenre() {
@@ -207,5 +226,22 @@ public class Book {
         }
 
         return f.getName();
+    }
+    public static ObservableList<Book> getDataBooks(){
+
+        ObservableList<Book> list = FXCollections.observableArrayList();
+        String sqlSelect = "Select copyNo,ISBN,title,FullName from staff_book_bookcopy_author ";
+        try{
+            PreparedStatement pst = staffconnection().prepareStatement(sqlSelect);
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+                list.add(new Book(rs.getInt("CopyNumber"),rs.getInt("ISBN"),
+                        rs.getString("title"),rs.getString("Author"),
+                        rs.getInt("edition"), rs.getString("pubdate"),rs.getString("genre1") ));
+            }
+        } catch (Exception  e) {
+
+        }
+        return list;
     }
 }

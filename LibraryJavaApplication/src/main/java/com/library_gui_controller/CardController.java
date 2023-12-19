@@ -46,7 +46,7 @@ public class CardController {
         File file = new File(b.getBookImage().toURI());
         image.setImage( new Image(file.toURI().toString()) );
         title.setText(b.getTitle());
-        authors.setText(b.getAuthor());
+        authors.setText(b.getAuthorFullName());
         genre.setText(b.getGenre());
     }
 }
