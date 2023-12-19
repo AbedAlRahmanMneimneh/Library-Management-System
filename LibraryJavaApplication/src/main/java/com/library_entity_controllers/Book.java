@@ -8,7 +8,10 @@ import javafx.collections.ObservableList;
 import java.io.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
+import static com.library_database_controller.Library_Client_User_Connector.clientconnection;
 import static com.library_database_controller.Library_Staff_User_Controller.staffconnection;
 import static com.library_gui_controller.FileDialogueSelect.openFileDialogue;
 
@@ -54,7 +57,7 @@ public class Book {
     }
 
     public Book(Integer ISBN, String title, Integer edition, String genre, Integer numOfPages, String publisher,
-                String datePublished, Integer available, String bookDescription, File bookImage, String author) {
+                String datePublished,  String bookDescription, File bookImage, String author) {
         this.ISBN = ISBN;
         this.title = title;
         this.edition = edition;
@@ -227,7 +230,8 @@ public class Book {
 
         return f.getName();
     }
-    public static ObservableList<Book> getDataBooks(){
+
+    public static ObservableList<Book> getStaffDataBookCopies(){
 
         ObservableList<Book> list = FXCollections.observableArrayList();
         String sqlSelect = "Select copyNo,ISBN,title,FullName from staff_book_bookcopy_author ";
@@ -236,8 +240,25 @@ public class Book {
             ResultSet rs = pst.executeQuery();
             while(rs.next()){
                 list.add(new Book(rs.getInt("CopyNumber"),rs.getInt("ISBN"),
-                        rs.getString("title"),rs.getString("Author"),
-                        rs.getInt("edition"), rs.getString("pubdate"),rs.getString("genre1") ));
+                        rs.getString("title"),rs.getString("FullName")));
+            }
+        } catch (Exception  e) {
+
+        }
+        return list;
+    }
+    public static  List<Book> getClientDataBooks(){
+
+        List<Book> list = new ArrayList<>();
+        String sqlSelect = "Select * from book_author ";
+        try{
+            PreparedStatement pst = clientconnection().prepareStatement(sqlSelect);
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+                list.add(new Book(rs.getInt("ISBN"),rs.getString("title"),rs.getInt("edition")
+                        ,rs.getString("genre"),rs.getInt("numOfPages"),rs.getString("publisher")
+                        ,rs.getString("datePublished"),rs.getString("bookDescription"),
+                        new File(rs.getString("booKImage")),rs.getString("FullName")));
             }
         } catch (Exception  e) {
 
