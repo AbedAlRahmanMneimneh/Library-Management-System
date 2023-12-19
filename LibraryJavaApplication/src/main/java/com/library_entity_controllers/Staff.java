@@ -203,8 +203,9 @@ public class Staff {
 
                 }
         }
-        public void addReservation(int studyRoomId, int userId, String reservationDateTime, String reservationEndDateTime ){
+        public void addReservation(int studyRoomId, int userId, String reservationDateTime, String reservationEndDateTime ) throws SQLException {
         String sqlInsert = "insert into libappschem.makereservation values" + " ('" + studyRoomId + "'," + "'" + userId + "'," + "'" + reservationDateTime + "'," + "'" + reservationEndDateTime + "')";
+        staffstatement().executeUpdate(sqlInsert);
         }
 
 
