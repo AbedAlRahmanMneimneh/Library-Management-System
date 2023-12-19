@@ -171,24 +171,39 @@ public class Staff {
     public void sendMailForAllCustomersDue() throws MessagingException {
         ObservableList<RentDue> list = FXCollections.observableArrayList();
         String sqlSelect = "Select * from libappschem.currently_in_rent_user_copynumber ";
-        try{
+        try {
             PreparedStatement pst = staffconnection().prepareStatement(sqlSelect);
             ResultSet rs = pst.executeQuery();
-            while(rs.next()){
-                list.add(new RentDue(rs.getString("email"),rs.getInt("userId"),
-                        rs.getInt("ISBN"),rs.getString("title"), rs.getInt("copyNumber"),rs.getString("rentDate")));
+            while (rs.next()) {
+                list.add(new RentDue(rs.getString("email"), rs.getInt("userId"),
+                        rs.getInt("ISBN"), rs.getString("title"), rs.getInt("copyNumber"), rs.getString("rentDate")));
             }
-        } catch (Exception  e) {
+        } catch (Exception e) {
 
         }
-        for(RentDue rentDue : list ){
+        for (RentDue rentDue : list) {
             String subject = "Rent is Due!";
             String emailTo = rentDue.getEmail();
-            String contents= "The book you (UserId: "+rentDue.getUserId()+") rented on: "+ rentDue.getRentDate()  +" of Copy Number :" + rentDue.getCopyNumber() + " and ISBN:  "
-                    + rentDue.getISBN() + " is due and you should return it as soon as possible \n Thank you,\n Apollo"  ;
-            sendMail(emailTo,subject,contents);
+            String contents = "The book you (UserId: " + rentDue.getUserId() + ") rented on: " + rentDue.getRentDate() + " of Copy Number :" + rentDue.getCopyNumber() + " and ISBN:  "
+                    + rentDue.getISBN() + " is due and you should return it as soon as possible \n Thank you,\n Apollo";
+            sendMail(emailTo, subject, contents);
 
+        }
     }
+        public void getReservation() throws MessagingException {
+            ObservableList<RoomsReservation> list = FXCollections.observableArrayList();
+            String sqlSelect = "Select * from libappschem.makereservation  ";
+            try{
+                PreparedStatement pst = staffconnection().prepareStatement(sqlSelect);
+                ResultSet rs = pst.executeQuery();
+                while(rs.next()){
+                    list.add(new RoomsReservation(rs.getInt("reservationId"),rs.getInt("studyRoomId"),rs.getInt("userid"),rs.getString("reservationDateTime"), rs.getString("reseravtionEndDateTime")));
+                }
+            } catch (Exception  e) {
 
-}
+                }
+        }
+        public void addReservation(int studyRoomId, int userId, String reservationDateTime, String reservationEndDateTime ){
+        
+        }
 }

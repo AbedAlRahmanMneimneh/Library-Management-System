@@ -8,11 +8,14 @@ import javafx.collections.ObservableList;
 import java.io.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.library_database_controller.Library_Client_User_Connector.clientconnection;
+import static com.library_database_controller.Library_Client_User_Connector.clientstatement;
 import static com.library_database_controller.Library_Staff_User_Controller.staffconnection;
+import static com.library_database_controller.Library_Staff_User_Controller.staffstatement;
 import static com.library_gui_controller.FileDialogueSelect.openFileDialogue;
 
 public class Book {
@@ -265,4 +268,23 @@ public class Book {
         }
         return list;
     }
+    public void addBook(int ISBN, String title, int authorId, int edition, String genre, int numOfPages,String publisher, String datePublished, String bookDescription, String fileName) throws SQLException {
+        String sqlInsert = "insert into libappschem.book values" + " ('" + ISBN + "'," + "'" + title + "'," + "'" + authorId + "'," + "'" + edition + "','" + genre +"','"+numOfPages+"',"+"'"+publisher+"',"+ "STR_TO_DATE(\"" + datePublished + "\", \"%m-%d-%Y\")" +",'"+bookDescription+"','"+"src/main/resources/com/library_gui_controller/images/"+fileName +"')";
+        staffstatement().executeUpdate(sqlInsert);
+
+    }
+    public void addBookCopy(int bookCopy,int ISBN) throws SQLException {
+        String sqlInsert = "insert into libappschem.bookCopy values" + " ("+bookCopy+","+ISBN+","+1+")";
+        staffstatement().executeUpdate(sqlInsert);
+
+    }
+
+    public static void update_book(int ISBN, String title, int authorId, int edition, String genre, int numOfPages,String publisher, String datePublished, String bookDescription) throws SQLException {
+        String sqlUpdate = "UPDATE libappschem SET title = " + "'"+ title+"',"+"authorId = " + "'"+ authorId+"',"
+                +"publisher = " + "'"+ publisher+"',"+"edition = " + "'"+ edition+"',"+"numOfPages = "
+                + "'"+ numOfPages+"'," +"datePublished ="+"STR_TO_DATE(\"" + datePublished + "\", \"%d-%m-%Y\")" +"genre = " + "'"+ genre+"', bookDescription='"+bookDescription+"' WHERE ISBN = '"+ISBN+"'";
+        staffstatement().executeUpdate(sqlUpdate);
+    }
+
+
 }

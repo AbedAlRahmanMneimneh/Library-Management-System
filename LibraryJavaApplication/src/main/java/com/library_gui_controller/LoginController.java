@@ -8,8 +8,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import static com.library_database_controller.Library_Client_User_Connector.clientstatement;
 import static com.library_entity_controllers.Client.validateClientAccount;
 import static com.library_entity_controllers.Staff.validateStaffAccount;
 
@@ -136,6 +138,45 @@ public class LoginController {
             name =un;
             loggedin = true;
         }
+    }
+    public boolean checkUsername(String username) throws SQLException {
+        boolean canMake = false;
+        int count = 1;
+
+        String sqlSelect = "SELECT Exists(Select * from user where username ='" + username + "')";
+        ResultSet rs = clientstatement().executeQuery(sqlSelect);
+        while (rs.next()) {
+            count = rs.getInt(1);
+        }
+        if (count == 0) canMake = true;
+
+        return canMake;
+    }
+    public boolean checkPhoneNumber(int phoneNumber) throws SQLException {
+        boolean canMake = false;
+        int count = 1;
+
+        String sqlSelect = "SELECT Exists(Select * from user where phoneNumber ='" + phoneNumber + "')";
+        ResultSet rs = clientstatement().executeQuery(sqlSelect);
+        while (rs.next()) {
+            count = rs.getInt(1);
+        }
+        if (count == 0) canMake = true;
+
+        return canMake;
+    }
+    public boolean checkEmail(String email) throws SQLException {
+        boolean canMake = false;
+        int count = 1;
+
+        String sqlSelect = "SELECT Exists(Select * from user where email ='" + email+ "')";
+        ResultSet rs = clientstatement().executeQuery(sqlSelect);
+        while (rs.next()) {
+            count = rs.getInt(1);
+        }
+        if (count == 0) canMake = true;
+
+        return canMake;
     }
 
 }

@@ -160,45 +160,7 @@ public class Client {
         String sqlInsert = "insert into libappschem.user values" + " ('" + firstName + "'," + "'" + lastName + "'," + "'" + phoneNumber + "'," + "'" + landline + "'," + gender.toString() + "STR_TO_DATE(\"" + dateOfBirth + "\", \"%m-%d-%Y\")" + "," + ")";
         clientstatement().executeUpdate(sqlInsert);
     }
-    public boolean checkUsername(String username) throws SQLException {
-        boolean canMake = false;
-        int count = 1;
 
-            String sqlSelect = "SELECT Exists(Select * from user where username ='" + username + "')";
-            ResultSet rs = clientstatement().executeQuery(sqlSelect);
-            while (rs.next()) {
-                count = rs.getInt(1);
-            }
-            if (count == 0) canMake = true;
-
-        return canMake;
-    }
-    public boolean checkPhoneNumber(int phoneNumber) throws SQLException {
-        boolean canMake = false;
-        int count = 1;
-
-        String sqlSelect = "SELECT Exists(Select * from user where phoneNumber ='" + phoneNumber + "')";
-        ResultSet rs = clientstatement().executeQuery(sqlSelect);
-        while (rs.next()) {
-            count = rs.getInt(1);
-        }
-        if (count == 0) canMake = true;
-
-        return canMake;
-    }
-    public boolean checkEmail(String email) throws SQLException {
-        boolean canMake = false;
-        int count = 1;
-
-        String sqlSelect = "SELECT Exists(Select * from user where email ='" + email+ "')";
-        ResultSet rs = clientstatement().executeQuery(sqlSelect);
-        while (rs.next()) {
-            count = rs.getInt(1);
-        }
-        if (count == 0) canMake = true;
-
-        return canMake;
-    }
     public int getBooksRented() throws SQLException {
         String sqlSelect = "Select * from user_rented where userId="+client.clientId;
         ResultSet rs = clientstatement().executeQuery(sqlSelect);
