@@ -36,7 +36,7 @@ public class UserMainViewController implements Initializable {
     private Button searchBT;
 
     @FXML
-    private TextField searchTF;
+    TextField searchTF;
 
     @FXML
     private Button userBT;

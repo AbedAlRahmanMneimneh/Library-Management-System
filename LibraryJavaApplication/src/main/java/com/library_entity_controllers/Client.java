@@ -8,17 +8,17 @@ import static com.library_database_controller.Library_Client_User_Connector.clie
 import static com.library_database_controller.Library_Staff_User_Controller.staffstatement;
 
 public class Client {
-    public static Client client= null;
-    private int clientId;
-    private String firstName;
-    private String lastName;
-    private String fullName;
-    private int phoneNumber, landLine;
-    private String email;
+    public static Client client= new Client();
+    private int clientId = 3;
+    private String firstName = "Guest";
+    private String lastName= "Guest";
+    private String fullName= "Guest";
+    private int phoneNumber= 00000000, landLine= 00000000;
+    private String email= "Guest@email.com";
 
-    private String gender;
-    private String dateOfBirth;
-    private String username, password;
+    private String gender = "Male/Female";
+    private String dateOfBirth = "00-00-0000";
+    private String username= "Guest", password;
     public Client(int userId, String firstName, String lastName, int phoneNo, int landLine, String email, String dateOfBirth) {
         this.clientId = userId;
         this.firstName = firstName;
@@ -162,24 +162,45 @@ public class Client {
     }
 
     public int getBooksRented() throws SQLException {
+        int out = 0;
         String sqlSelect = "Select * from user_rented where userId="+client.clientId;
-        ResultSet rs = clientstatement().executeQuery(sqlSelect);
-        rs.next();
-        return rs.getInt("Count(DISTINCT book.ISBN)");
-
+        try {
+            ResultSet rs = clientstatement().executeQuery(sqlSelect);
+            rs.next();
+            out= rs.getInt("Count(DISTINCT book.ISBN)");
+        }
+        catch (Exception e){
+            return out;
+        }
+    return out;
     }
     public int getPagesRead() throws SQLException {
+        int out= 0;
         String sqlSelect = "Select * from pages_read where userId="+client.clientId;
+        try{
         ResultSet rs = clientstatement().executeQuery(sqlSelect);
         rs.next();
-        return rs.getInt("Sum(book.numOfPages)");
+        out= rs.getInt("Sum(book.numOfPages)");
+        }
+        catch (Exception e ){
+            return out;
+        }
+        return out;
 
     }
-    public int getFavouriteGenre() throws SQLException {
-        String sqlSelect = "Select genre from user_genre where userId='"+client.clientId + "' LIMIT 1";
-        ResultSet rs = clientstatement().executeQuery(sqlSelect);
-        rs.next();
-        return rs.getInt("Sum(book.numOfPages)");
+    public String getFavouriteGenre() throws SQLException {
+        String out = "";
+        try {
+            String sqlSelect = "Select genre from user_genre where userId='" + client.clientId + "' LIMIT 1";
+            ResultSet rs = clientstatement().executeQuery(sqlSelect);
+            rs.next();
+            out = rs.getString("genre");
+        }
+        catch (Exception e){
+            return out;
+        }
+
+        return out;
 
     }
 

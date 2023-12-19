@@ -44,7 +44,7 @@ public class Search implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources)  {
-        List<Book> recomended = new ArrayList<>(recommendedList());
+        List<Book> recomended = new ArrayList<>( searchClientDataBooks(UserMainViewController.getInstance().searchTF.getText()));
 
         try {
             for(Book b:recomended){

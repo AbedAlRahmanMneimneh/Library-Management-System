@@ -85,6 +85,9 @@ public class Overview implements Initializable {
         dob.setText("Date of Birth: "+Client.client.getDateOfBirth());
         gender.setText("Gender: "+Client.client.getGender());
         landline.setText("Landline: "+Client.client.getLandLine());
+        favoriteGenre.setText("Favorite Genre: N/A");
+        booksRented.setText("Books Rented: 0");
+        pagesRead.setText("Pages Read: 0");
         try {
             favoriteGenre.setText("Favorite Genre: "+Client.client.getFavouriteGenre());
         } catch (SQLException e) {
