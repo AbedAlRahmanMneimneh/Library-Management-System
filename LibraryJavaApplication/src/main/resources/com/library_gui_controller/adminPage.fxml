@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -16,7 +17,7 @@
    <children>
       <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="1062.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
          <tabs>
-            <Tab fx:id="tabText" style="-fx-background-color: #464d73;">
+            <Tab style="-fx-background-color: #464d73;">
                <content>
                   <HBox>
                      <children>
@@ -57,23 +58,23 @@
                   </HBox>
                </content>
                <graphic>
-                  <Label fx:id="bookCopiesTab" prefHeight="17.0" text="Book Copies" textFill="WHITE">
+                  <Label prefHeight="17.0" text="Book Copies" textFill="WHITE">
                      <font>
                         <Font name="Georgia" size="13.0" />
                      </font></Label>
                </graphic>
             </Tab>
-            <Tab fx:id="tabText2" style="-fx-background-color: #464d73;">
+            <Tab style="-fx-background-color: #464d73;">
                <content>
                   <HBox>
                      <children>
                         <TableView fx:id="tableReservations" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="571.0" prefWidth="603.0" HBox.hgrow="ALWAYS">
                            <columns>
-                              <TableColumn fx:id="col_copyNo1" minWidth="150.0" prefWidth="-1.0" text="Reservation ID" />
-                              <TableColumn fx:id="col_ISBN1" minWidth="150.0" prefWidth="-1.0" text="Study Room ID" />
-                              <TableColumn fx:id="col_title1" minWidth="150.0" prefWidth="-1.0" text="user ID" />
-                              <TableColumn fx:id="col_author1" minWidth="150.0" prefWidth="-1.0" text="Reservation Date Time" />
-                              <TableColumn fx:id="col_author12" minWidth="150.0" prefWidth="-1.0" text="Reservation End Time" />
+                              <TableColumn fx:id="col_reservationID" minWidth="150.0" prefWidth="-1.0" text="Reservation ID" />
+                              <TableColumn fx:id="col_RoomID" minWidth="150.0" prefWidth="-1.0" text="Study Room ID" />
+                              <TableColumn fx:id="col_userID" minWidth="150.0" prefWidth="-1.0" text="user ID" />
+                              <TableColumn fx:id="col_reservationDateTime" minWidth="150.0" prefWidth="-1.0" text="Reservation Date Time" />
+                              <TableColumn fx:id="col_reservationEndTime" minWidth="150.0" prefWidth="-1.0" text="Reservation End Time" />
                            </columns>
                         </TableView>
                         <VBox alignment="CENTER" prefHeight="571.0" prefWidth="23.0" spacing="50.0" HBox.hgrow="ALWAYS">
@@ -93,13 +94,13 @@
                               <VBox spacing="10.0">
                                  <children>
                                     <Label text="Reservation Date Time" />
-                                    <TextField fx:id="reservationTime" promptText="Reservation Date Time" />
+                                    <TextField fx:id="reservationTime" promptText="YYYY-MM-DD HH:MM:SS" />
                                  </children>
                               </VBox>
                               <VBox spacing="10.0">
                                  <children>
                                     <Label text="Reservation End Time" />
-                                    <TextField fx:id="reservationEndTime" promptText="Reservation End Time" />
+                                    <TextField fx:id="reservationEndTime" promptText="YYYY-MM-DD HH:MM:SS" />
                                  </children>
                               </VBox>
                               <HBox alignment="CENTER" spacing="45.0">
@@ -113,14 +114,14 @@
                   </HBox>
                </content>
                <graphic>
-                  <Label fx:id="ReservationsTab" prefHeight="17.0" text="Reservations" textFill="WHITE">
+                  <Label prefHeight="17.0" text="Reservations" textFill="WHITE">
                      <font>
                         <Font name="Georgia" size="13.0" />
                      </font>
                   </Label>
                </graphic>
             </Tab>
-            <Tab fx:id="tabText1" style="-fx-background-color: #464d73;">
+            <Tab style="-fx-background-color: #464d73;">
                <content>
                   <VBox spacing="15.0">
                      <children>
@@ -218,7 +219,7 @@
                                     </Label>
                                     <HBox alignment="CENTER_LEFT" spacing="10.0">
                                        <children>
-                                          <Button fx:id="uploadIMG" mnemonicParsing="false" onAction="#upload" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #464d73;" text="upload image" textAlignment="CENTER" textFill="WHITE">
+                                          <Button fx:id="uploadIMG" mnemonicParsing="false" onAction="#upload" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #464d73;" text="Upload image" textAlignment="CENTER" textFill="WHITE">
                                              <font>
                                                 <Font name="Georgia" size="12.0" />
                                              </font>
@@ -257,13 +258,13 @@
                   </VBox>
                </content>
                <graphic>
-                  <Label fx:id="modTab" prefHeight="17.0" text="Modify Book" textFill="WHITE">
+                  <Label prefHeight="17.0" text="Modify Book" textFill="WHITE">
                      <font>
                         <Font name="Georgia" size="13.0" />
                      </font></Label>
                </graphic>
             </Tab>
-            <Tab fx:id="tabText11" style="-fx-background-color: #464d73;">
+            <Tab style="-fx-background-color: #464d73;">
                <content>
                   <VBox spacing="15.0">
                      <children>
@@ -271,52 +272,22 @@
                            <children>
                               <VBox spacing="8.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Label text="ISBN" VBox.vgrow="ALWAYS">
+                                    <Label text="UserID" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font name="Georgia" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="ISBNTF1" promptText="ISBN" VBox.vgrow="ALWAYS">
+                                    <TextField fx:id="userIDTF" promptText="UserId" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font name="Georgia" size="13.0" />
                                        </font>
                                     </TextField>
-                                    <Label text="Title" VBox.vgrow="ALWAYS">
+                                    <Label text="BookCopyNumber" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font name="Georgia" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="titleTF1" promptText="Title" VBox.vgrow="ALWAYS">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label text="AuthorID" VBox.vgrow="ALWAYS">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="authorTF1" promptText="AuthorID" VBox.vgrow="ALWAYS">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label text="# of pages">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="numberOfPages1" promptText="#of Pages">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label text="Description">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="descriptionTF1" promptText="Description">
+                                    <TextField fx:id="BookCopyNumberTF" promptText="Book Copy Number" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font name="Georgia" size="13.0" />
                                        </font>
@@ -328,65 +299,7 @@
                               </VBox>
                               <VBox spacing="8.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Label text="Publisher">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="publisherTF1" promptText="Publisher">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label text="Edition">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="editionTF1" promptText="Edition">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label text="Publication Date">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="pubDateTF1" promptText="Publication Date">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label text="Genre">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="genreTF1" promptText="Genre">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label text="Book Cover (must be image)">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                       <children>
-                                          <Button fx:id="uploadIMG1" mnemonicParsing="false" onAction="#upload" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #464d73;" text="upload image" textAlignment="CENTER" textFill="WHITE">
-                                             <font>
-                                                <Font name="Georgia" size="12.0" />
-                                             </font>
-                                          </Button>
-                                          <Label fx:id="fileNameLabel1" text="File Name">
-                                             <font>
-                                                <Font name="Georgia" size="13.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0" />
                                  </children>
                                  <padding>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -394,160 +307,68 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" spacing="50.0">
+                        <HBox alignment="CENTER_LEFT" spacing="50.0">
                            <children>
-                              <Button fx:id="addButton1" mnemonicParsing="false" onAction="#add" style="-fx-background-color: #464d73;" text="Add Book" textAlignment="CENTER" textFill="WHITE">
+                              <Button fx:id="rentBook" mnemonicParsing="false" onAction="#rentBook" style="-fx-background-color: #464d73;" text="Rent Book" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="Georgia" size="12.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="deleteButton1" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: #464d73;" text="Delete Book" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font name="Georgia" size="12.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="updateButton1" mnemonicParsing="false" onAction="#update" style="-fx-background-color: #464d73;" text="Update the Book" textAlignment="CENTER" textFill="WHITE">
+                              <Button fx:id="returnBook" mnemonicParsing="false" onAction="#returnBook" style="-fx-background-color: #464d73;" text="Return Book" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="Georgia" size="12.0" />
                                  </font>
                               </Button>
                            </children>
+                           <padding>
+                              <Insets left="80.0" />
+                           </padding>
                         </HBox>
                      </children>
                   </VBox>
                </content>
                <graphic>
-                  <Label fx:id="modTab1" prefHeight="17.0" text="Rent Books" textFill="WHITE">
+                  <Label prefHeight="17.0" text="Transact Books" textFill="WHITE">
                      <font>
                         <Font name="Georgia" size="13.0" />
                      </font>
                   </Label>
                </graphic>
             </Tab>
-            <Tab fx:id="tabText111" style="-fx-background-color: #464d73;">
+            <Tab style="-fx-background-color: #464d73;">
                <content>
-                  <VBox spacing="15.0">
+                  <VBox alignment="TOP_CENTER" spacing="15.0">
                      <children>
                         <HBox fillHeight="false">
                            <children>
                               <VBox spacing="8.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Label text="ISBN" VBox.vgrow="ALWAYS">
+                                    <Label text="Email To" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font name="Georgia" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="ISBNTF11" promptText="ISBN" VBox.vgrow="ALWAYS">
+                                    <TextField fx:id="to" promptText="Email to" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font name="Georgia" size="13.0" />
                                        </font>
                                     </TextField>
-                                    <Label text="Title" VBox.vgrow="ALWAYS">
+                                    <Label text="Subject" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font name="Georgia" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="titleTF11" promptText="Title" VBox.vgrow="ALWAYS">
+                                    <TextField fx:id="subject" promptText="Subject" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font name="Georgia" size="13.0" />
                                        </font>
                                     </TextField>
-                                    <Label text="AuthorID" VBox.vgrow="ALWAYS">
+                                    <Label text="Content" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font name="Georgia" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="authorTF11" promptText="AuthorID" VBox.vgrow="ALWAYS">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label text="# of pages">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="numberOfPages11" promptText="#of Pages">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label text="Description">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="descriptionTF11" promptText="Description">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </padding>
-                              </VBox>
-                              <VBox spacing="8.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Label text="Publisher">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="publisherTF11" promptText="Publisher">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label text="Edition">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="editionTF11" promptText="Edition">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label text="Publication Date">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="pubDateTF11" promptText="Publication Date">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label text="Genre">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="genreTF11" promptText="Genre">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label text="Book Cover (must be image)">
-                                       <font>
-                                          <Font name="Georgia" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                       <children>
-                                          <Button fx:id="uploadIMG11" mnemonicParsing="false" onAction="#upload" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #464d73;" text="upload image" textAlignment="CENTER" textFill="WHITE">
-                                             <font>
-                                                <Font name="Georgia" size="12.0" />
-                                             </font>
-                                          </Button>
-                                          <Label fx:id="fileNameLabel11" text="File Name">
-                                             <font>
-                                                <Font name="Georgia" size="13.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
+                                    <TextArea fx:id="content" prefHeight="200.0" prefWidth="200.0" promptText="Content" />
                                  </children>
                                  <padding>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -557,28 +378,32 @@
                         </HBox>
                         <HBox alignment="CENTER" spacing="50.0">
                            <children>
-                              <Button fx:id="addButton11" mnemonicParsing="false" onAction="#add" style="-fx-background-color: #464d73;" text="Add Book" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font name="Georgia" size="12.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="deleteButton11" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: #464d73;" text="Delete Book" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font name="Georgia" size="12.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="updateButton11" mnemonicParsing="false" onAction="#update" style="-fx-background-color: #464d73;" text="Update the Book" textAlignment="CENTER" textFill="WHITE">
+                              <Button fx:id="sendEmail" mnemonicParsing="false" onAction="#send" style="-fx-background-color: #464d73;" text="Send Email" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font name="Georgia" size="12.0" />
                                  </font>
                               </Button>
                            </children>
                         </HBox>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Label text="To send an automatic reminder, please click:">
+                                 <font>
+                                    <Font name="Georgia" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="sendReminder" mnemonicParsing="false" onAction="#sendReminder" style="-fx-background-color: #464d73;" text="Send Reminder To Due Rents" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Georgia" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
                      </children>
                   </VBox>
                </content>
                <graphic>
-                  <Label fx:id="modTab11" prefHeight="17.0" text="Send Emails" textFill="WHITE">
+                  <Label prefHeight="17.0" text="Send Emails" textFill="WHITE">
                      <font>
                         <Font name="Georgia" size="13.0" />
                      </font>
