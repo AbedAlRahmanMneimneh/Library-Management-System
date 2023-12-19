@@ -13,10 +13,9 @@ import javax.mail.Transport;
 
 import static com.library_database_controller.Library_Staff_User_Controller.staffconnection;
 
-
 public class Mail {
-    private String emailFrom = "apolloscriptlibrary@gmail.com";
-    private String appPassword = "tdluxehshmqybktc";
+    private static String emailFrom = "apolloscriptlibrary@gmail.com";
+    private static String appPassword = "tdluxehshmqybktc";
     public static void sendMail(String emailTo, String Subject, String Contents) throws MessagingException {
         Session session = createSessionAuth();
         Message message = new MimeMessage(session);
@@ -37,7 +36,7 @@ public class Mail {
 
         Transport.send(message);
     }
-    private Properties setProperties(){
+    private static Properties setProperties(){
         Properties prop = new Properties();
         prop.put("mail.smtp.auth", true);
         prop.put("mail.smtp.starttls.enable", "true");
@@ -45,7 +44,7 @@ public class Mail {
         prop.put("mail.smtp.port", "25");
         return prop;
     }
-    private Session createSessionAuth(){
+    private static Session createSessionAuth(){
         Session session = Session.getDefaultInstance(setProperties(), new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {

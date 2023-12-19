@@ -2,6 +2,7 @@ package com.library_gui_controller;
 
 
 import com.library_entity_controllers.Book;
+import com.library_entity_controllers.Client;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -87,7 +88,8 @@ public class adminPage implements Initializable {
         col_pubdate.setCellValueFactory(new PropertyValueFactory<>("pubdate"));
         col_genre1.setCellValueFactory(new PropertyValueFactory<>("genre1"));
 
-      //  listM = Book.getDataBooks();
+        listM = Book.getStaffDataBookCopies();
+
         tableBooks.setItems(listM);
 
     }
