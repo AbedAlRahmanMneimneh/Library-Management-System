@@ -204,6 +204,13 @@ public class Staff {
                 }
         }
         public void addReservation(int studyRoomId, int userId, String reservationDateTime, String reservationEndDateTime ){
-        
+        String sqlInsert = "insert into libappschem.makereservation values" + " ('" + studyRoomId + "'," + "'" + userId + "'," + "'" + reservationDateTime + "'," + "'" + reservationEndDateTime + "')";
+        }
+
+        public void deleteBook(int ISBN) throws SQLException {
+        String sqlDelete ="DELETE FROM libappschem.bookcopy WHERE ISBN ="  +ISBN;
+        staffstatement().executeUpdate(sqlDelete);
+        sqlDelete ="DELETE FROM libappschem.book WHERE ISBN ="  +ISBN;
+        staffstatement().executeUpdate(sqlDelete);
         }
 }
