@@ -10,9 +10,13 @@ import javafx.scene.layout.VBox;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static com.library_database_controller.Library_Client_User_Connector.clientconnection;
 
 public class Search implements Initializable {
 
@@ -55,5 +59,23 @@ public class Search implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    public static  List<Book> searchClientDataBooks(String searchStatement){
+
+        List<Book> list = new ArrayList<>();
+        String sqlSelect = "Select * from book_author where ISBN = '" + searchStatement +"' UNION "+"Select * from book_author where FullName = '" + searchStatement +"' UNION " +"Select * from book_author where genre = '" + searchStatement +"' UNION "+"Select * from book_author where publisher = '" + searchStatement +"'";
+        try{
+            PreparedStatement pst = clientconnection().prepareStatement(sqlSelect);
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+                list.add(new Book(rs.getInt("ISBN"),rs.getString("title"),rs.getInt("edition")
+                        ,rs.getString("genre"),rs.getInt("numOfPages"),rs.getString("publisher")
+                        ,rs.getString("datePublished"),rs.getString("bookDescription"),
+                        new File(rs.getString("booKImage")),rs.getString("FullName")));
+            }
+        } catch (Exception  e) {
+
+        }
+        return list;
     }
 }
