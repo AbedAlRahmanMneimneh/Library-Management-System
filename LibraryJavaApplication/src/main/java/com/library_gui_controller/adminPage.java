@@ -209,6 +209,7 @@ public class adminPage implements Initializable {
 
         col_ISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
         col_title.setCellValueFactory(new PropertyValueFactory<>("title"));
+
         col_author.setCellValueFactory(new PropertyValueFactory<>("authorFullName"));
         col_copyNo.setCellValueFactory(new PropertyValueFactory<>("copyNumber"));
         ObservableList<Book> listBooks = Book.getStaffDataBookCopies();
@@ -225,3 +226,4 @@ public class adminPage implements Initializable {
 
     }
 }
+
