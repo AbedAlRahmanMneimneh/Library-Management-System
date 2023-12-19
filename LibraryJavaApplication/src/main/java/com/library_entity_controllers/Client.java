@@ -175,5 +175,12 @@ public class Client {
         return rs.getInt("Sum(book.numOfPages)");
 
     }
+    public int getFavouriteGenre() throws SQLException {
+        String sqlSelect = "Select genre from user_genre where userId='"+client.clientId + "' LIMIT 1";
+        ResultSet rs = clientstatement().executeQuery(sqlSelect);
+        rs.next();
+        return rs.getInt("Sum(book.numOfPages)");
+
+    }
 
 }
