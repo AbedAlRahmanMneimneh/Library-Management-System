@@ -16,32 +16,40 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `works`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `works`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `works` (
-  `staffId` int NOT NULL,
-  `branchId` int DEFAULT NULL,
-  `privLevel` enum('1','2') NOT NULL,
-  `startDate` date NOT NULL,
-  `endDate` date DEFAULT NULL,
-  KEY `branches` (`branchId`),
-  KEY `staffIdd` (`staffId`),
-  CONSTRAINT `branches` FOREIGN KEY (`branchId`) REFERENCES `branch` (`branchId`),
-  CONSTRAINT `staffIdd` FOREIGN KEY (`staffId`) REFERENCES `staff` (`staffId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `user` (
+  `userId` int NOT NULL AUTO_INCREMENT,
+  `firstName` varchar(30) NOT NULL,
+  `lastName` varchar(30) NOT NULL,
+  `phoneNumber` decimal(8,0) NOT NULL,
+  `landLine` decimal(8,0) NOT NULL,
+  `email` varchar(300) NOT NULL,
+  `gender` enum('Male','Female') NOT NULL,
+  `dateOfBirth` date NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(150) NOT NULL,
+  PRIMARY KEY (`userId`),
+  UNIQUE KEY `phoneNum` (`phoneNumber`),
+  CONSTRAINT `check_email` CHECK ((`email` like _utf8mb4'%@%')),
+  CONSTRAINT `check_password` CHECK ((not((`password` like _utf8mb4'% %')))),
+  CONSTRAINT `check_phoneNumber` CHECK ((`phoneNumber` like _utf8mb4'________')),
+  CONSTRAINT `check_username_no_space` CHECK ((not((`username` like _utf8mb4'% %'))))
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `works`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `works` WRITE;
-/*!40000 ALTER TABLE `works` DISABLE KEYS */;
-/*!40000 ALTER TABLE `works` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (2,'Mahmoud','Kebbi',71519851,1652155,'mahmoud.kebbi180@gmail.com','Male','2003-01-09','Mok','Beirut-2003');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-11  1:08:49
+-- Dump completed on 2023-12-19 18:29:33

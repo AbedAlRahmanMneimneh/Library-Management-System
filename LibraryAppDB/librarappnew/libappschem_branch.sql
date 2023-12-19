@@ -16,34 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `transacts`
+-- Table structure for table `branch`
 --
 
-DROP TABLE IF EXISTS `transacts`;
+DROP TABLE IF EXISTS `branch`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `transacts` (
-  `staffId` int NOT NULL,
-  `userId` int NOT NULL,
-  `copyNumber` int DEFAULT NULL,
-  `transactionDate` date DEFAULT (curdate()),
-  `transactionType` enum('Rent','Return') NOT NULL,
-  KEY `Transacts_bookcopy_null_fk` (`copyNumber`),
-  KEY `Transacts_staff_null_fk` (`staffId`),
-  KEY `Transacts_user_null_fk` (`userId`),
-  CONSTRAINT `Transacts_bookcopy_null_fk` FOREIGN KEY (`copyNumber`) REFERENCES `bookcopy` (`copyNo`),
-  CONSTRAINT `Transacts_staff_null_fk` FOREIGN KEY (`staffId`) REFERENCES `staff` (`staffId`),
-  CONSTRAINT `Transacts_user_null_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+CREATE TABLE `branch` (
+  `branchId` int NOT NULL,
+  `city` varchar(80) DEFAULT NULL,
+  `street` varchar(200) DEFAULT NULL,
+  `phoneNo` decimal(8,0) DEFAULT NULL,
+  PRIMARY KEY (`branchId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `transacts`
+-- Dumping data for table `branch`
 --
 
-LOCK TABLES `transacts` WRITE;
-/*!40000 ALTER TABLE `transacts` DISABLE KEYS */;
-/*!40000 ALTER TABLE `transacts` ENABLE KEYS */;
+LOCK TABLES `branch` WRITE;
+/*!40000 ALTER TABLE `branch` DISABLE KEYS */;
+INSERT INTO `branch` VALUES (1,'Beirut','Hamra',1652155);
+/*!40000 ALTER TABLE `branch` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-11  1:08:49
+-- Dump completed on 2023-12-19 18:29:33

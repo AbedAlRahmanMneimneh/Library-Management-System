@@ -16,28 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `branch`
+-- Table structure for table `author`
 --
 
-DROP TABLE IF EXISTS `branch`;
+DROP TABLE IF EXISTS `author`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `branch` (
-  `branchId` int NOT NULL,
-  `city` varchar(80) DEFAULT NULL,
-  `street` varchar(200) DEFAULT NULL,
-  `phoneNo` int DEFAULT NULL,
-  PRIMARY KEY (`branchId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `author` (
+  `authorId` int NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(30) NOT NULL,
+  `lastname` varchar(30) DEFAULT NULL,
+  `email` varchar(300) DEFAULT NULL,
+  `gender` enum('Male','Female') NOT NULL,
+  PRIMARY KEY (`authorId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `branch`
+-- Dumping data for table `author`
 --
 
-LOCK TABLES `branch` WRITE;
-/*!40000 ALTER TABLE `branch` DISABLE KEYS */;
-/*!40000 ALTER TABLE `branch` ENABLE KEYS */;
+LOCK TABLES `author` WRITE;
+/*!40000 ALTER TABLE `author` DISABLE KEYS */;
+INSERT INTO `author` VALUES (1,'Plato',NULL,NULL,'Male');
+/*!40000 ALTER TABLE `author` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-11  1:08:49
+-- Dump completed on 2023-12-19 18:29:34

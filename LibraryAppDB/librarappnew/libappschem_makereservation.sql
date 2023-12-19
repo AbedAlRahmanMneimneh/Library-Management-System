@@ -27,15 +27,14 @@ CREATE TABLE `makereservation` (
   `studyRoomId` int NOT NULL,
   `userId` int NOT NULL,
   `reservationDateTime` datetime NOT NULL,
-  `duration` int NOT NULL,
+  `reservationEndDateTime` datetime NOT NULL,
   PRIMARY KEY (`reservationId`),
   UNIQUE KEY `makereservation_pk` (`reservationDateTime`),
   KEY `MakeReservation_studyroom_null_fk` (`studyRoomId`),
   KEY `MakeReservation_user_null_fk` (`userId`),
   CONSTRAINT `MakeReservation_studyroom_null_fk` FOREIGN KEY (`studyRoomId`) REFERENCES `studyroom` (`studyRoomId`),
-  CONSTRAINT `MakeReservation_user_null_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`),
-  CONSTRAINT `DurationTimes` CHECK ((`duration` >= 30))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `MakeReservation_user_null_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,6 +43,7 @@ CREATE TABLE `makereservation` (
 
 LOCK TABLES `makereservation` WRITE;
 /*!40000 ALTER TABLE `makereservation` DISABLE KEYS */;
+INSERT INTO `makereservation` VALUES (1,1,2,'2023-12-22 15:48:53','2023-12-22 19:00:00');
 /*!40000 ALTER TABLE `makereservation` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-11  1:08:49
+-- Dump completed on 2023-12-19 18:29:33

@@ -16,28 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `bookcopy`
+-- Table structure for table `studyroom`
 --
 
-DROP TABLE IF EXISTS `bookcopy`;
+DROP TABLE IF EXISTS `studyroom`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `bookcopy` (
-  `copyNo` int NOT NULL,
-  `ISBN` int DEFAULT NULL,
-  PRIMARY KEY (`copyNo`),
-  KEY `ISBN` (`ISBN`),
-  CONSTRAINT `ISBN` FOREIGN KEY (`ISBN`) REFERENCES `book` (`ISBN`)
+CREATE TABLE `studyroom` (
+  `studyRoomId` int NOT NULL,
+  `capacity` int NOT NULL,
+  `tvPresent` tinyint(1) NOT NULL,
+  `available` tinyint(1) NOT NULL,
+  `branchId` int NOT NULL,
+  PRIMARY KEY (`studyRoomId`),
+  KEY `branch` (`branchId`),
+  CONSTRAINT `branch` FOREIGN KEY (`branchId`) REFERENCES `branch` (`branchId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `bookcopy`
+-- Dumping data for table `studyroom`
 --
 
-LOCK TABLES `bookcopy` WRITE;
-/*!40000 ALTER TABLE `bookcopy` DISABLE KEYS */;
-/*!40000 ALTER TABLE `bookcopy` ENABLE KEYS */;
+LOCK TABLES `studyroom` WRITE;
+/*!40000 ALTER TABLE `studyroom` DISABLE KEYS */;
+INSERT INTO `studyroom` VALUES (1,4,1,1,1);
+/*!40000 ALTER TABLE `studyroom` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-11  1:08:49
+-- Dump completed on 2023-12-19 18:29:34

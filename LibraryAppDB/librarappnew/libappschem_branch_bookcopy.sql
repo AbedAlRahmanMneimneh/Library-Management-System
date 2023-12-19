@@ -16,32 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `computer`
+-- Table structure for table `branch_bookcopy`
 --
 
-DROP TABLE IF EXISTS `computer`;
+DROP TABLE IF EXISTS `branch_bookcopy`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `computer` (
-  `computerId` int NOT NULL AUTO_INCREMENT,
-  `brand` varchar(30) NOT NULL,
-  `processor` varchar(50) NOT NULL,
-  `graphicsCard` varchar(30) DEFAULT NULL,
-  `available` tinyint(1) NOT NULL,
-  `branchid` int NOT NULL,
-  PRIMARY KEY (`computerId`),
-  KEY `branchId` (`branchid`),
-  CONSTRAINT `branchId` FOREIGN KEY (`branchid`) REFERENCES `branch` (`branchId`)
+CREATE TABLE `branch_bookcopy` (
+  `branchId` int DEFAULT NULL,
+  `copyNumber` int DEFAULT NULL,
+  `dateAdded` date DEFAULT NULL,
+  KEY `branchIDs` (`branchId`),
+  KEY `copyNumber` (`copyNumber`),
+  CONSTRAINT `branchIDs` FOREIGN KEY (`branchId`) REFERENCES `branch` (`branchId`),
+  CONSTRAINT `copyNumber` FOREIGN KEY (`copyNumber`) REFERENCES `bookcopy` (`copyNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `computer`
+-- Dumping data for table `branch_bookcopy`
 --
 
-LOCK TABLES `computer` WRITE;
-/*!40000 ALTER TABLE `computer` DISABLE KEYS */;
-/*!40000 ALTER TABLE `computer` ENABLE KEYS */;
+LOCK TABLES `branch_bookcopy` WRITE;
+/*!40000 ALTER TABLE `branch_bookcopy` DISABLE KEYS */;
+/*!40000 ALTER TABLE `branch_bookcopy` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-11  1:08:49
+-- Dump completed on 2023-12-19 18:29:33

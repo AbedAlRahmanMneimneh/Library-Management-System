@@ -197,7 +197,7 @@ public class Staff {
                 PreparedStatement pst = staffconnection().prepareStatement(sqlSelect);
                 ResultSet rs = pst.executeQuery();
                 while(rs.next()){
-                    list.add(new RoomsReservation(rs.getInt("reservationId"),rs.getInt("studyRoomId"),rs.getInt("userid"),rs.getString("reservationDateTime"), rs.getString("reseravtionEndDateTime")));
+                    list.add(new RoomsReservation(rs.getInt("reservationId"),rs.getInt("studyRoomId"),rs.getInt("userid"),rs.getString("reservationDateTime"), rs.getString("reservationEndDateTime")));
                 }
             } catch (Exception  e) {
 
@@ -213,4 +213,8 @@ public class Staff {
         sqlDelete ="DELETE FROM libappschem.book WHERE ISBN ="  +ISBN;
         staffstatement().executeUpdate(sqlDelete);
         }
+    public void deleteBookCopy(int number) throws SQLException {
+        String sqlDelete ="DELETE FROM libappschem.book WHERE copyNo ="  +number;
+        staffstatement().executeUpdate(sqlDelete);
+    }
 }

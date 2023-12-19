@@ -16,30 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `branch_bookcopy`
+-- Table structure for table `wrote`
 --
 
-DROP TABLE IF EXISTS `branch_bookcopy`;
+DROP TABLE IF EXISTS `wrote`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `branch_bookcopy` (
-  `branchId` int DEFAULT NULL,
-  `copyNumber` int DEFAULT NULL,
-  `dateAdded` date DEFAULT NULL,
-  KEY `branchIDs` (`branchId`),
-  KEY `copyNumber` (`copyNumber`),
-  CONSTRAINT `branchIDs` FOREIGN KEY (`branchId`) REFERENCES `branch` (`branchId`),
-  CONSTRAINT `copyNumber` FOREIGN KEY (`copyNumber`) REFERENCES `bookcopy` (`copyNo`)
+CREATE TABLE `wrote` (
+  `ISBN` int DEFAULT NULL,
+  `authorId` int DEFAULT NULL,
+  KEY `ISBNo` (`ISBN`),
+  KEY `author` (`authorId`),
+  CONSTRAINT `author` FOREIGN KEY (`authorId`) REFERENCES `author` (`authorId`),
+  CONSTRAINT `ISBNo` FOREIGN KEY (`ISBN`) REFERENCES `book` (`ISBN`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `branch_bookcopy`
+-- Dumping data for table `wrote`
 --
 
-LOCK TABLES `branch_bookcopy` WRITE;
-/*!40000 ALTER TABLE `branch_bookcopy` DISABLE KEYS */;
-/*!40000 ALTER TABLE `branch_bookcopy` ENABLE KEYS */;
+LOCK TABLES `wrote` WRITE;
+/*!40000 ALTER TABLE `wrote` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wrote` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-11  1:08:49
+-- Dump completed on 2023-12-19 18:29:34
