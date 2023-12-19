@@ -70,8 +70,8 @@
                               </Label>
                               <MenuButton fx:id="gender" mnemonicParsing="false" prefWidth="300.0" text="Gender">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" text="Male" />
-                                    <MenuItem mnemonicParsing="false" text="Female" />
+                                    <MenuItem mnemonicParsing="false" onAction="#setMale" text="Male" />
+                                    <MenuItem mnemonicParsing="false" onAction="#setFemale" text="Female" />
                                  </items>
                               </MenuButton>
                            </children>

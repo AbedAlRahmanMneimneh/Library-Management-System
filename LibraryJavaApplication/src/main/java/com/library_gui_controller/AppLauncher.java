@@ -3,6 +3,7 @@ package com.library_gui_controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,7 +27,8 @@ public class AppLauncher extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("UserMainView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("Apollo Script");
+        stage.getIcons().add(new Image("file:src/main/resources/com/library_gui_controller/Icons/search.png"));
         stage.setScene(scene);
         stage.show();
     }

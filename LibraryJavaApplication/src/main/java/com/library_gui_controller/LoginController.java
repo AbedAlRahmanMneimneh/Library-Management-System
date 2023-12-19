@@ -120,6 +120,14 @@ public class LoginController {
     void setAsStaff(ActionEvent event) {
         isStaff=!isStaff;
     }
+    @FXML
+    void setMale(ActionEvent event){
+        gender.setText("Male");
+    }
+    @FXML
+    void setFemale(ActionEvent event){
+        gender.setText("Female");
+    }
 
     @FXML
     private Label checker;
@@ -130,15 +138,22 @@ public class LoginController {
         String pw = pass.getText();
         String pwConfirm = confirmPass.getText();
         String em = email.getText();
-
-        if(checkUsername(un)){
+        if(username.getText().isEmpty()||pass.getText().isEmpty()||confirmPass.getText().isEmpty()||email.getText().isEmpty()
+        || firstname.getText().isEmpty()||lastname.getText().isEmpty()||landline.getText().isEmpty()||phone.getText().isEmpty()||gender.getText().isEmpty()){
+            checker.setText("Fill all the text fields");
+            checker.setVisible(true);
+        }
+        else if(!checkUsername(un)){
             checker.setText("Username Already Exists!");
+            checker.setVisible(true);
             signupMatch = false;
-        } else if (checkEmail(em)) {
+        } else if (!checkEmail(em)) {
             checker.setText("Email Already Exists!");
+            checker.setVisible(true);
             signupMatch = false;
-        } else if (checkPhoneNumber(Integer.parseInt(phone.getText()))) {
+        } else if (!checkPhoneNumber(Integer.parseInt(phone.getText()))) {
             checker.setText("Phone Already Exists!");
+            checker.setVisible(true);
             signupMatch = false;
         }else if (!pwConfirm.equals(pw)) {
             passwordNoMatch.setVisible(true);

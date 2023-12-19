@@ -157,7 +157,7 @@ public class Client {
     }
     public void signUp(String username, String password,String firstName, String lastName,int phoneNumber,int landline, String email, String gender, String dateOfBirth) throws SQLException {
 
-        String sqlInsert = "insert into libappschem.user values" + " ('" + firstName + "'," + "'" + lastName + "'," + "'" + phoneNumber + "'," + "'" + landline + "'," + gender.toString() + "STR_TO_DATE(\"" + dateOfBirth + "\", \"%m-%d-%Y\")" + "," + ")";
+        String sqlInsert = "insert into libappschem.user (firstName,lastname,phoneNumber,landline,email,gender,dateOfBirth,username,password) values " + " ('" + firstName + "'," + "'" + lastName + "'," + "'" + phoneNumber + "'," + "'" + landline +"','"+email+ "','" + gender + "',"+ "(STR_TO_DATE(\"" + dateOfBirth + "\", \"%Y-%m-%d\")),'"  +username+"'," + "'"+password+"')";
         clientstatement().executeUpdate(sqlInsert);
     }
 

@@ -63,7 +63,7 @@ public class Search implements Initializable {
     public static  List<Book> searchClientDataBooks(String searchStatement){
 
         List<Book> list = new ArrayList<>();
-        String sqlSelect = "Select * from book_author where ISBN = '" + searchStatement +"' UNION "+"Select * from book_author where FullName = '" + searchStatement +"' UNION " +"Select * from book_author where genre = '" + searchStatement +"' UNION "+"Select * from book_author where publisher = '" + searchStatement +"'";
+        String sqlSelect = "Select * from book_author where ISBN = '" + searchStatement +"' UNION "+"Select * from book_author where FullName like '" + searchStatement +"%' UNION " +"Select * from book_author where genre like '%" + searchStatement +"%' UNION "+"Select * from book_author where publisher like '%" + searchStatement +"%'";
         try{
             PreparedStatement pst = clientconnection().prepareStatement(sqlSelect);
             ResultSet rs = pst.executeQuery();

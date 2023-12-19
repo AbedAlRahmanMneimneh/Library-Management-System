@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="910.0" prefWidth="900.0" style="-fx-background-color: #D9B89C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" />
+<VBox prefHeight="910.0" prefWidth="900.0" spacing="10.0" style="-fx-background-color: #e1e1e1;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fitHeight="174.0" fitWidth="1524.0" pickOnBounds="true" VBox.vgrow="ALWAYS">
+            <image>
+                <Image url="@images/OIP.jpeg." />
+            </image>
+        </ImageView>
+        <Label prefHeight="22.0" text="About Us:" textFill="#464d73">
+            <font>
+                <Font name="Georgia Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label text="What is Lorem Ipsum?" textFill="#464d73" underline="true" wrapText="true">
+            <font>
+                <Font name="Georgia Bold" size="14.0" />
+            </font>
+        </Label>
+        <Label text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." textFill="#464d73" wrapText="true">
+            <font>
+                <Font name="Georgia Italic" size="14.0" />
+            </font>
+        </Label>
+        <Label text="Where does it come from?" textFill="#464d73" underline="true" wrapText="true">
+            <font>
+                <Font name="Georgia Bold" size="14.0" />
+            </font>
+        </Label>
+        <Label text="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot; (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor sit amet..&quot;, comes from a line in section 1.10.32." textFill="#464d73" wrapText="true">
+            <font>
+                <Font name="Georgia Italic" size="14.0" />
+            </font>
+        </Label>
+        <Label text="The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from &quot;de Finibus Bonorum et Malorum&quot; by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham." textFill="#464d73" wrapText="true">
+            <font>
+                <Font name="Georgia Italic" size="14.0" />
+            </font>
+        </Label>
+    </children>
+</VBox>
