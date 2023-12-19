@@ -111,6 +111,7 @@
                         </VBox>
                      </children>
                   </HBox>
+                  <Label fx:id="checker" text="Label" visible="false" />
                   <Button fx:id="signup" mnemonicParsing="false" onAction="#signup" style="-fx-background-color: #464D73;" text="Sign Up" textFill="#e1e1e1">
                      <font>
                         <Font name="Georgia" size="14.0" />

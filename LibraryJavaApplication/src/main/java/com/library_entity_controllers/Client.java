@@ -117,9 +117,9 @@ public class Client {
     }
     public GENDER getGender() {return gender;}
     public void setGender(GENDER gender) {this.gender = gender;}
-    public static boolean validateClientAccount(String email, String password) throws SQLException {
+    public static boolean validateClientAccount(String username1, String password) throws SQLException {
 
-        String sqlselect = "SELECT *, CONCAT(firstName, ' ', lastName) as fullName from user WHERE email = '" + email + "'";
+        String sqlselect = "SELECT *, CONCAT(firstName, ' ', lastName) as fullName from user WHERE username = '" + username1 + "'";
 
         ResultSet rs = clientstatement().executeQuery(sqlselect);
         rs.next();
@@ -128,7 +128,7 @@ public class Client {
         boolean login = (Objects.equals(password, passcode));
         if (login == true) {
             int clientId = rs.getInt("userId");
-            String username = rs.getString("username");
+            String email = rs.getString("email");
             String firstName = rs.getString("firstName");
             String lastName = rs.getString("lastName");
             String fullName = rs.getString("fullName");
@@ -138,7 +138,7 @@ public class Client {
             String dateOfBirth = rs.getString("dateOfBirth");
             client = new Client();
             client.setClientId(clientId);
-            client.setUsername(username);
+            client.setUsername(username1);
             client.setFirstName(firstName);
             client.setLastName(lastName);
             client.setPhoneNumber(phoneNumber);

@@ -1,9 +1,7 @@
 package com.library_gui_controller;
 
-import com.library_entity_controllers.Book;
-import com.library_entity_controllers.Client;
-import com.library_entity_controllers.RoomsReservation;
-import com.library_entity_controllers.Staff;
+import com.Email.Mail;
+import com.library_entity_controllers.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -161,43 +159,39 @@ public class adminPage implements Initializable {
     }
 
     @FXML
-    void addBookCopy(ActionEvent event) {
-        Book.addBookCopy();
+    void addBookCopy(ActionEvent event) throws SQLException {
+        Book.addBookCopy(Integer.parseInt(copyNumber.getText()),Integer.parseInt(ISBNcopyTF.getText()));
+    }
+
+
+    @FXML
+    void deletebookCopy(ActionEvent event) throws SQLException {
+        Book.deleteBookCopy(Integer.parseInt(copyNumber.getText()));
     }
 
     @FXML
-    void delete(ActionEvent event) {
-
+    void rentBook(ActionEvent event) throws SQLException {
+        RentDue.rentBook(Integer.parseInt(BookCopyNumberTF.getText()), Integer.parseInt(userIDTF.getText()));
     }
 
     @FXML
-    void deletebookCopy(ActionEvent event) {
-
+    void reserveRoom(ActionEvent event) throws SQLException {
+        Staff.addReservation(Integer.parseInt(studyRoomID.getText()), Integer.parseInt(UserID.getText()), reservationTime.getText(), reservationEndTime.getText());
     }
 
     @FXML
-    void rentBook(ActionEvent event) {
-
+    void returnBook(ActionEvent event) throws SQLException {
+        RentDue.returnBook(Integer.parseInt(BookCopyNumberTF.getText()), Integer.parseInt(userIDTF.getText()));
     }
 
     @FXML
-    void reserveRoom(ActionEvent event) {
-
+    void send(ActionEvent event) throws MessagingException {
+        Mail.sendMail(to.getText(),subject.getText(),content.getText());
     }
 
     @FXML
-    void returnBook(ActionEvent event) {
-
-    }
-
-    @FXML
-    void send(ActionEvent event) {
-
-    }
-
-    @FXML
-    void sendReminder(ActionEvent event) {
-
+    void sendReminder(ActionEvent event) throws MessagingException {
+        Staff.sendMailForAllCustomersDue();
     }
 
     @FXML
@@ -233,8 +227,6 @@ public class adminPage implements Initializable {
             throw new RuntimeException(e);
         }
         tableReservations.setItems(listReservations);
-
-
     }
 }
 

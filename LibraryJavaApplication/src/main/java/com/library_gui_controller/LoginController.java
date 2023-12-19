@@ -2,6 +2,7 @@ package com.library_gui_controller;
 
 import com.library_entity_controllers.Client;
 import com.library_entity_controllers.Client.*;
+import com.library_entity_controllers.GENDER;
 import com.library_entity_controllers.Staff;
 import com.library_entity_controllers.Staff.*;
 import javafx.event.ActionEvent;
@@ -17,6 +18,7 @@ import static com.library_entity_controllers.Staff.validateStaffAccount;
 
 public class LoginController {
 
+//    private static  com.library_entity_controllers.GENDER GENDER = ;
     @FXML
     private Label WrongCredentials;
 
@@ -109,7 +111,7 @@ public class LoginController {
             //ktob el methods la tshayik mn el database hon.
             name = un;
             loggedin = true;
-            if (loggedin) UserMainViewController.getInstance().goToOverview(event);
+            if (loggedin) {UserMainViewController.getInstance().goToOverview(event);}
         }
 
     }
@@ -120,13 +122,25 @@ public class LoginController {
     }
 
     @FXML
-    void signup(ActionEvent event) {
+    private Label checker;
+
+    @FXML
+    void signup(ActionEvent event) throws SQLException {
         String un = username.getText();
         String pw = pass.getText();
         String pwConfirm = confirmPass.getText();
         String em = email.getText();
 
-        if (!pwConfirm.equals(pw)) {
+        if(checkUsername(un)){
+            checker.setText("Username Already Exists!");
+            signupMatch = false;
+        } else if (checkEmail(em)) {
+            checker.setText("Email Already Exists!");
+            signupMatch = false;
+        } else if (checkPhoneNumber(Integer.parseInt(phone.getText()))) {
+            checker.setText("Phone Already Exists!");
+            signupMatch = false;
+        }else if (!pwConfirm.equals(pw)) {
             passwordNoMatch.setVisible(true);
             signupMatch = false;
         } else {
@@ -134,7 +148,7 @@ public class LoginController {
         }
 
         if (signupMatch) {
-            //ktob el methods la tshayik mn el database hon.
+            Client.client.signUp(un,pw, firstname.getText(), lastname.getText(), Integer.parseInt(phone.getText()), Integer.parseInt(landline.getText()), em, (gender.getText().toUpperCase().charAt(0)=='M'?GENDER.MALE: GENDER.FEMALE),dob.getValue().toString() );
             name =un;
             loggedin = true;
         }

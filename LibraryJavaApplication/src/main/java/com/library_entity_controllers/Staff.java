@@ -168,7 +168,7 @@ public class Staff {
         staff = null;
     }
 
-    public void sendMailForAllCustomersDue() throws MessagingException {
+    public static void sendMailForAllCustomersDue() throws MessagingException {
         ObservableList<RentDue> list = FXCollections.observableArrayList();
         String sqlSelect = "Select * from libappschem.currently_in_rent_user_copynumber ";
         try {
@@ -204,7 +204,7 @@ public class Staff {
                 }
             return list;
         }
-        public void addReservation(int studyRoomId, int userId, String reservationDateTime, String reservationEndDateTime ) throws SQLException {
+        public static void addReservation(int studyRoomId, int userId, String reservationDateTime, String reservationEndDateTime ) throws SQLException {
         String sqlInsert = "insert into libappschem.makereservation values" + " ('" + studyRoomId + "'," + "'" + userId + "'," + "'" + reservationDateTime + "'," + "'" + reservationEndDateTime + "')";
         staffstatement().executeUpdate(sqlInsert);
         }

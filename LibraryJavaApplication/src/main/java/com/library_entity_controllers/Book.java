@@ -222,7 +222,7 @@ public class Book {
         }
         return list;
     }
-    public static  List<Book> getClientDataBooks(){
+    public static List<Book> getClientDataBooks(){
 
         List<Book> list = new ArrayList<>();
         String sqlSelect = "Select * from book_author ";
@@ -261,10 +261,9 @@ public class Book {
         staffstatement().executeUpdate(sqlUpdate);
     }
 
-    public void deleteBookCopy(int number) throws SQLException {
+    public static void deleteBookCopy(int number) throws SQLException {
         String sqlDelete ="DELETE FROM libappschem.book WHERE copyNo ="  +number;
         staffstatement().executeUpdate(sqlDelete);
     }
-
 
 }

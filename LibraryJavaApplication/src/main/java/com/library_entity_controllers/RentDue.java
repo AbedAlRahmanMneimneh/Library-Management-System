@@ -70,11 +70,11 @@ public class RentDue {
         this.rentDate = rentDate;
     }
 
-    public void rentBook(int bookCopy,int userId ) throws SQLException {
+    public static void rentBook(int bookCopy, int userId) throws SQLException {
         String sqlInsert = "Insert Into libappschem.transacts values("+bookCopy+","+userId+", curdate(),'Rent'";
         staffstatement().executeUpdate(sqlInsert);
     }
-    public void returnBook(int bookCopy,int userId ) throws SQLException {
+    public static void returnBook(int bookCopy, int userId) throws SQLException {
         String sqlInsert = "Insert Into libappschem.transacts values("+bookCopy+","+userId+", curdate(),'Return'";
         staffstatement().executeUpdate(sqlInsert);
     }
