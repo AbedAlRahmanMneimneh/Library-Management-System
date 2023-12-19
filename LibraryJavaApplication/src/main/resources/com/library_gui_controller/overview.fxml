@@ -156,11 +156,6 @@
                            <Font name="Georgia" size="16.0" />
                         </font>
                      </Label>
-                     <Label fx:id="favoriteAuthor" text="Favorite Author:" textFill="#464d73" wrapText="true">
-                        <font>
-                           <Font name="Georgia" size="16.0" />
-                        </font>
-                     </Label>
                      <Label fx:id="booksRented" text="Books Rented: " textFill="#464d73" wrapText="true">
                         <font>
                            <Font name="Georgia" size="16.0" />

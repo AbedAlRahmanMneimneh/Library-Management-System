@@ -190,7 +190,7 @@ public class Staff {
 
         }
     }
-        public void getReservation() throws MessagingException {
+        public ObservableList<RoomsReservation> getReservation() throws MessagingException {
             ObservableList<RoomsReservation> list = FXCollections.observableArrayList();
             String sqlSelect = "Select * from libappschem.makereservation  ";
             try{
@@ -202,6 +202,7 @@ public class Staff {
             } catch (Exception  e) {
 
                 }
+            return list;
         }
         public void addReservation(int studyRoomId, int userId, String reservationDateTime, String reservationEndDateTime ) throws SQLException {
         String sqlInsert = "insert into libappschem.makereservation values" + " ('" + studyRoomId + "'," + "'" + userId + "'," + "'" + reservationDateTime + "'," + "'" + reservationEndDateTime + "')";

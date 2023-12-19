@@ -1,5 +1,6 @@
 package com.library_gui_controller;
 
+import com.library_entity_controllers.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class Overview implements Initializable {
@@ -75,18 +77,29 @@ public class Overview implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        username.setText("Username: "+""/*code to get data*/);
-        email.setText("Email: "+""/*code to get data*/);
-        phone.setText("Phone: "+""/*code to get data*/);
-        fullName.setText("Full Name: "+""/*code to get data*/);
-        userID.setText("User ID: "+""/*code to get data*/);
-        dob.setText("Date of Birth: "+""/*code to get data*/);
-        gender.setText("Gender: "+""/*code to get data*/);
-        landline.setText("Landline: "+""/*code to get data*/);
-        favoriteAuthor.setText("Favorite Author: "+""/*code to get data*/);
-        favoriteGenre.setText("Favorite Genre: "+""/*code to get data*/);
-        booksRented.setText("Books Rented: "+""/*code to get data*/);
-        pagesRead.setText("Pages: "+""/*code to get data*/);
+        username.setText("Username: "+Client.client.getUsername());
+        email.setText("Email: "+Client.client.getEmail());
+        phone.setText("Phone: "+Client.client.getPhoneNumber());
+        fullName.setText("Full Name: "+Client.client.getFullName());
+        userID.setText("User ID: "+Client.client.getClientId());
+        dob.setText("Date of Birth: "+Client.client.getDateOfBirth());
+        gender.setText("Gender: "+Client.client.getGender());
+        landline.setText("Landline: "+Client.client.getLandLine());
+        try {
+            favoriteGenre.setText("Favorite Genre: "+Client.client.getFavouriteGenre());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            booksRented.setText("Books Rented: "+Client.client.getBooksRented());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            pagesRead.setText("Pages: "+Client.client.getPagesRead());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

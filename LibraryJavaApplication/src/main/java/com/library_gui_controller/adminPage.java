@@ -3,6 +3,7 @@ package com.library_gui_controller;
 import com.library_entity_controllers.Book;
 import com.library_entity_controllers.Client;
 import com.library_entity_controllers.RoomsReservation;
+import com.library_entity_controllers.Staff;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +16,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javax.mail.MessagingException;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class adminPage implements Initializable {
@@ -150,13 +155,14 @@ public class adminPage implements Initializable {
     private TextField userIDTF;
 
     @FXML
-    void add(ActionEvent event) {
+    void add(ActionEvent event) throws SQLException {
+        Book.addBook(Integer.parseInt(ISBNTF.getText()), titleTF.getText(), Integer.parseInt(authorTF.getText()) , Integer.parseInt(editionTF.getText()), genreTF.getText(), Integer.parseInt(numberOfPages.getText()), publisherTF.getText(), pubDateTF.getText(), descriptionTF.getText(), fileNameLabel.getText());
 
     }
 
     @FXML
     void addBookCopy(ActionEvent event) {
-
+        Book.addBookCopy();
     }
 
     @FXML
@@ -195,13 +201,13 @@ public class adminPage implements Initializable {
     }
 
     @FXML
-    void update(ActionEvent event) {
-
+    void update(ActionEvent event) throws SQLException {
+        Book.update_book(Integer.parseInt(ISBNTF.getText()), titleTF.getText(), Integer.parseInt(authorTF.getText()) , Integer.parseInt(editionTF.getText()), genreTF.getText(), Integer.parseInt(numberOfPages.getText()), publisherTF.getText(), pubDateTF.getText(), descriptionTF.getText());
     }
 
     @FXML
-    void upload(ActionEvent event) {
-
+    void upload(ActionEvent event) throws IOException, IncorrectFileTypeException {
+        fileNameLabel.setText(FileDialogueSelect.copyImageToProject());
     }
 
     @Override
@@ -221,6 +227,11 @@ public class adminPage implements Initializable {
         col_reservationDateTime.setCellValueFactory(new PropertyValueFactory<>("reservationDateTime"));
         col_reservationEndTime.setCellValueFactory(new PropertyValueFactory<>("reservationEndDateTime"));
         ObservableList<RoomsReservation> listReservations = null; //TO BE CHANGED!!!!!!!!!!!!! TO BE CHANGED!!!!!!!!!!!!!!!
+        try {
+            listReservations = Staff.staff.getReservation();
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
         tableReservations.setItems(listReservations);
 
 

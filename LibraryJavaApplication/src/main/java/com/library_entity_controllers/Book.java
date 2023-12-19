@@ -240,7 +240,7 @@ public class Book {
         }
         return list;
     }
-    public void addBook(int ISBN, String title, int authorId, int edition, String genre, int numOfPages,String publisher, String datePublished, String bookDescription, String fileName) throws SQLException {
+    public static void addBook(int ISBN, String title, int authorId, int edition, String genre, int numOfPages, String publisher, String datePublished, String bookDescription, String fileName) throws SQLException {
         String sqlInsert = "insert into libappschem.book values" + " ('" + ISBN + "'," + "'" + title + "',"
                 + "'" + authorId + "'," + "'" + edition + "','" + genre +"','"+numOfPages+"',"+"'"+publisher+"',"
                 + "STR_TO_DATE(\"" + datePublished + "\", \"%m-%d-%Y\")" +",'"+bookDescription+"','"
@@ -248,7 +248,7 @@ public class Book {
         staffstatement().executeUpdate(sqlInsert);
 
     }
-    public void addBookCopy(int bookCopy,int ISBN) throws SQLException {
+    public static void addBookCopy(int bookCopy, int ISBN) throws SQLException {
         String sqlInsert = "insert into libappschem.bookCopy values" + " ("+bookCopy+","+ISBN+","+1+")";
         staffstatement().executeUpdate(sqlInsert);
 
