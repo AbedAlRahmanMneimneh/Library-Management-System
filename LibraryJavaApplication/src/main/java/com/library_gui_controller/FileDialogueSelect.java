@@ -11,6 +11,7 @@ public class FileDialogueSelect {
         JFileChooser chooser = new JFileChooser();
         Scanner in = null;
         File selected = null;
+
         if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
              selected = chooser.getSelectedFile();
         }

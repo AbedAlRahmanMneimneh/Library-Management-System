@@ -91,6 +91,7 @@ public class LoginController {
     @FXML
     void login(ActionEvent event) throws SQLException {
         // to get the text from a textfield use example.getText
+        isStaff=asStaff.isSelected();
         String un = usernameLogin.getText();
         String pw = passLogin.getText();
         if(isStaff){
@@ -98,22 +99,39 @@ public class LoginController {
             if (!loginMatch) {
                 WrongCredentials.setVisible(true);
             } else {
+                UserMainViewController.getInstance().staff = true;
+                if (asStaff.isSelected()) {
+                    UserMainViewController.getInstance().roomsBT.setText("Admin");
+                    UserMainViewController.getInstance().setStaffScene();
+                } else {
+                    UserMainViewController.getInstance().setUserScene();
+                }
                 //ktob el methods la tshayik mn el database hon.
+
                 name = Staff.staff.getFullName();
+                UserMainViewController.getInstance().setName(name);
                 loggedin = true;
                 if (loggedin) UserMainViewController.getInstance().goToOverview(event);
             }
-        }
-        loginMatch = validateClientAccount(un,  pw);
-        if (!loginMatch) {
-            WrongCredentials.setVisible(true);
         } else {
-            //ktob el methods la tshayik mn el database hon.
-            name = un;
-            loggedin = true;
-            if (loggedin) {UserMainViewController.getInstance().goToOverview(event);}
+            loginMatch = validateClientAccount(un, pw);
+            if (!loginMatch) {
+                WrongCredentials.setVisible(true);
+            } else {
+                if (asStaff.isSelected()) {
+                    UserMainViewController.getInstance().roomsBT.setText("Admin");
+                    UserMainViewController.getInstance().setStaffScene();
+                } else {
+                    UserMainViewController.getInstance().setUserScene();
+                }
+                name = un;
+                UserMainViewController.getInstance().setName(name);
+                loggedin = true;
+                if (loggedin) {
+                    UserMainViewController.getInstance().goToOverview(event);
+                }
+            }
         }
-
     }
 
     @FXML

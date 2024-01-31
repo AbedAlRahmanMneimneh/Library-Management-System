@@ -1,6 +1,7 @@
 package com.library_gui_controller;
 
 import com.library_entity_controllers.Client;
+import com.library_entity_controllers.Staff;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -77,17 +78,31 @@ public class Overview implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        username.setText("Username: "+Client.client.getUsername());
-        email.setText("Email: "+Client.client.getEmail());
-        phone.setText("Phone: "+Client.client.getPhoneNumber());
-        fullName.setText("Full Name: "+Client.client.getFullName());
-        userID.setText("User ID: "+Client.client.getClientId());
-        dob.setText("Date of Birth: "+Client.client.getDateOfBirth());
-        gender.setText("Gender: "+Client.client.getGender());
-        landline.setText("Landline: "+Client.client.getLandLine());
+        if(UserMainViewController.staff){
+        username.setText("Username: "+ Staff.staff.getUsername());
+        email.setText("Email: "+Staff.staff.getEmail());
+        phone.setText("Phone: "+Staff.staff.getPhoneNumber());
+        fullName.setText("Full Name: "+Staff.staff.getFullName());
+        userID.setText("User ID: "+Staff.staff.getStaffId());
+        dob.setText("Date of Birth: "+Staff.staff.getDateOfBirth());
+        gender.setText("Gender: "+Staff.staff.getGender());
+        landline.setText("Landline: "+Staff.staff.getLandLine());
         favoriteGenre.setText("Favorite Genre: N/A");
         booksRented.setText("Books Rented: 0");
-        pagesRead.setText("Pages Read: 0");
+        pagesRead.setText("Pages Read: 0");}
+        else{
+            username.setText("Username: "+Client.client.getUsername());
+            email.setText("Email: "+Client.client.getEmail());
+            phone.setText("Phone: "+Client.client.getPhoneNumber());
+            fullName.setText("Full Name: "+Client.client.getFullName());
+            userID.setText("User ID: "+Client.client.getClientId());
+            dob.setText("Date of Birth: "+Client.client.getDateOfBirth());
+            gender.setText("Gender: "+Client.client.getGender());
+            landline.setText("Landline: "+Client.client.getLandLine());
+            favoriteGenre.setText("Favorite Genre: N/A");
+            booksRented.setText("Books Rented: 0");
+            pagesRead.setText("Pages Read: 0");}
+
         try {
             favoriteGenre.setText("Favorite Genre: "+Client.client.getFavouriteGenre());
         } catch (SQLException e) {

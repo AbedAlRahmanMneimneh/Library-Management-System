@@ -16,7 +16,7 @@ import java.io.IOException;
 public class AppLauncher extends Application {
 
     public static void main(String[] args) {
-
+        System.setProperty("java.awt.headless", "false");
         SpringApplication.run(AppLauncher.class, args);
         launch();
 

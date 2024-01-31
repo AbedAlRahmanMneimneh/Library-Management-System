@@ -243,7 +243,7 @@ public class Book {
     public static void addBook(int ISBN, String title, int authorId, int edition, String genre, int numOfPages, String publisher, String datePublished, String bookDescription, String fileName) throws SQLException {
         String sqlInsert = "insert into libappschem.book values" + " ('" + ISBN + "'," + "'" + title + "',"
                 + "'" + authorId + "'," + "'" + edition + "','" + genre +"','"+numOfPages+"',"+"'"+publisher+"',"
-                + "STR_TO_DATE(\"" + datePublished + "\", \"%m-%d-%Y\")" +",'"+bookDescription+"','"
+                + "(STR_TO_DATE(\"" + datePublished + "\", \"%Y-%m-%d\"))" +",'"+bookDescription+"','"
                 +"src/main/resources/com/library_gui_controller/images/"+fileName +"')";
         staffstatement().executeUpdate(sqlInsert);
 

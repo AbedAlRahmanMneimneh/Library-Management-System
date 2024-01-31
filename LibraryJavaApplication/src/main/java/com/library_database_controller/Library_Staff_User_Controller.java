@@ -13,7 +13,7 @@ import java.util.*;
 public class Library_Staff_User_Controller {
     public static Connection staffconnection() throws SQLException {
         Connection conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/libappschem", "Library_Client_User", "IAmAClient!");
+                "jdbc:mysql://localhost:3306/libappschem", "Library_Staff_User", "IAmAStaff!");
         return conn;
     }
 

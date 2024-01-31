@@ -201,7 +201,8 @@ public class adminPage implements Initializable {
 
     @FXML
     void upload(ActionEvent event) throws IOException, IncorrectFileTypeException {
-        fileNameLabel.setText(FileDialogueSelect.copyImageToProject());
+        String s = FileDialogueSelect.copyImageToProject();
+        fileNameLabel.setText(s);
     }
 
     @Override

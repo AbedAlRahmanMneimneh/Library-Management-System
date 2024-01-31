@@ -15,6 +15,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class UserMainViewController implements Initializable {
+   public static boolean  staff= false;
+
+
     @FXML
     private VBox scene;
     @FXML
@@ -30,7 +33,7 @@ public class UserMainViewController implements Initializable {
     private HBox recomendationHB;
 
     @FXML
-    private Button roomsBT;
+    Button roomsBT;
 
     @FXML
     private Button searchBT;
@@ -46,7 +49,7 @@ public class UserMainViewController implements Initializable {
 
     private static UserMainViewController instance;
 
-
+   private String rooms="rooms.fxml";
 
     public UserMainViewController(){
         instance = this;
@@ -69,6 +72,12 @@ public class UserMainViewController implements Initializable {
         }
         return fl;
     }
+
+    void setName(String s){
+        userNameLabel.setText(s);
+
+    }
+
     @FXML
     void goToExplore(ActionEvent event) {
         try {
@@ -83,6 +92,7 @@ public class UserMainViewController implements Initializable {
 
     @FXML
     void goToOverview(ActionEvent event) {
+
         try {
             FXMLLoader fl = new FXMLLoader();
             fl.setLocation(getClass().getResource("overview.fxml"));
@@ -118,23 +128,23 @@ public class UserMainViewController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        //if he is logged in then send him to overview scene.
-        boolean logged = lc.isLoggedin();
-        if (logged) {
-            try {
-                fl.setLocation(getClass().getResource("overview.fxml"));
-                VBox vb = fl.load();
-                scene.getChildren().setAll(vb);
-
-                //usernameLabel te3 el usermainview byes7ab el name te3 el logController
-                userNameLabel.setText(lc.name);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+//
+//        //if he is logged in then send him to overview scene.
+//        boolean logged = lc.isLoggedin();
+//        if (logged) {
+//            try {
+//                fl.setLocation(getClass().getResource("overview.fxml"));
+//                VBox vb = fl.load();
+//                scene.getChildren().setAll(vb);
+//
+//                //usernameLabel te3 el usermainview byes7ab el name te3 el logController
+//                userNameLabel.setText(lc.name);
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
     }
-    private String rooms="rooms.fxml";
+
     public void setStaffScene(){
         roomsBT.setText("Admin");
         rooms="adminPage.fxml";
